@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Komath Family Tree</title>
+<meta name="theme-color" content="#2F5D2A">
+<meta name="color-scheme" content="light dark">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Family Tree">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<style>
+:root{
+  --bg:#F4F6F2; --surface:#FFFFFF; --fg:#17231B; --muted:#5A6B5F; --line:#D9E1DA; --soft:#EBF0EB;
+  --bar:#2F5D2A; --bar-fg:#FFFFFF; --accent:#2F5D2A; --accent-fg:#FFFFFF; --focus:#1E6FD9;
+  --c0:#2A6AA0; --t0:#E3EDF6; --c1:#4B7C1E; --t1:#E8F0DC; --c2:#A85A14; --t2:#F7E9DA;
+  --c3:#7A4FA3; --t3:#EFE6F6; --c4:#B8305A; --t4:#F8E3EA; --c5:#1F7A74; --t5:#DDF0EE;
+  --cx:#5B6B60; --tx:#E6EBE7;
+  --hl:#FFE88A; --hl-fg:#3A2F00;
+  --font:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Malayalam","Nirmala UI","Kartika","Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#0F1710; --surface:#17211A; --fg:#E7EFE8; --muted:#9BAB9F; --line:#2A372D; --soft:#202C23;
+  --bar:#16301A; --bar-fg:#EAF4EB; --accent:#86C77A; --accent-fg:#0E170F; --focus:#6FB0FF;
+  --c0:#7DB4E6; --t0:#17283A; --c1:#A5CC6F; --t1:#25301A; --c2:#E8A25E; --t2:#3A2616;
+  --c3:#BE9BE3; --t3:#2C2140; --c4:#EE82A2; --t4:#3E1B27; --c5:#5CCBC2; --t5:#15332F;
+  --cx:#A9B8AD; --tx:#243027; --hl:#6B5A10; --hl-fg:#FFF3C4; color-scheme:dark}}
+*{box-sizing:border-box}
+html{background:var(--bg);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 var(--font);min-height:100vh}
+button{font:inherit;color:inherit}
+a{color:inherit}
+button:focus-visible,input:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+[hidden]{display:none!important}
+.tw{position:sticky;top:0;z-index:30}
+.top{background:var(--bar);color:var(--bar-fg);padding:calc(10px + env(safe-area-inset-top,0px)) max(14px,env(safe-area-inset-right,0px)) 10px max(14px,env(safe-area-inset-left,0px));display:flex;align-items:center;gap:10px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:18px;min-width:0;flex:1;cursor:pointer}
+.brand svg{flex:none}
+.brand span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ib{border:0;background:rgba(255,255,255,.16);color:var(--bar-fg);width:38px;height:38px;border-radius:10px;font-size:24px;line-height:1;cursor:pointer;display:grid;place-items:center;flex:none}
+main{max-width:680px;margin:0 auto;padding:22px max(16px,env(safe-area-inset-right,0px)) calc(40px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+h1{font-size:26px;line-height:1.2;margin:0 0 6px;text-wrap:balance}
+h2{font-size:21px;line-height:1.25;margin:0;text-wrap:balance}
+.lead{color:var(--muted);margin:0 0 16px}
+.ml{color:var(--muted);margin:-8px 0 18px}
+.home{padding-top:clamp(8px,8vh,64px)}
+.bn{background:var(--surface);border-bottom:1px solid var(--line);display:flex;padding:2px max(6px,env(safe-area-inset-right,0px)) 2px max(6px,env(safe-area-inset-left,0px));box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.bn a{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 2px;color:var(--muted);text-decoration:none;font-size:11.5px;font-weight:600;border-radius:10px;min-width:0}
+.bn a[aria-current="page"]{color:var(--accent)}
+.bn a[aria-current="page"] svg{stroke-width:2.4}
+.bn svg{display:block}
+.sbox{position:relative}
+.sbox .field{display:flex;align-items:center;gap:10px;background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:0 14px}
+.sbox .field:focus-within{border-color:var(--accent)}
+.sbox svg{flex:none;color:var(--muted)}
+.sbox input{flex:1;min-width:0;border:0;background:transparent;color:var(--fg);font:500 17px var(--font);padding:15px 0;outline:none}
+.sbox input::-webkit-search-cancel-button{display:none}
+.res{list-style:none;margin:8px 0 0;padding:4px;background:var(--surface);border:1px solid var(--line);border-radius:14px;display:flex;flex-direction:column;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.res button{width:100%;display:flex;gap:11px;align-items:center;text-align:left;border:0;background:transparent;padding:10px;border-radius:10px;cursor:pointer}
+.res button:hover,.res button:focus-visible{background:var(--soft)}
+.res .nm{display:block;font-weight:600}
+.res .cx{display:block;color:var(--muted);font-size:13px}
+.res .none{padding:12px;color:var(--muted)}
+.dot{width:11px;height:11px;border-radius:50%;background:var(--bc,var(--cx));flex:none;display:inline-block}
+.b0{--bc:var(--c0);--bt:var(--t0)}.b1{--bc:var(--c1);--bt:var(--t1)}.b2{--bc:var(--c2);--bt:var(--t2)}
+.b3{--bc:var(--c3);--bt:var(--t3)}.b4{--bc:var(--c4);--bt:var(--t4)}.b5{--bc:var(--c5);--bt:var(--t5)}.bx{--bc:var(--cx);--bt:var(--tx)}
+.al{color:var(--muted);font-size:.88em;font-weight:400}
+.mlbox{border-top:1px solid var(--line,rgba(128,128,128,.3));padding-top:10px;margin-top:2px}.mlp{margin:4px 0;line-height:1.45}.mlt{font-weight:700}.mls{color:var(--muted)}.note{margin:0;padding:8px 10px;border-radius:10px;background:rgba(128,128,128,.12);font-size:.95em}
+.spn{color:var(--muted);font-weight:400;font-size:.92em}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:16px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{display:inline-flex;align-items:center;gap:7px;font-weight:600;font-size:12.5px;padding:4px 10px;border-radius:99px;background:var(--bt,var(--soft));color:var(--fg)}
+.sub{color:var(--muted);font-size:14px;margin:3px 0 0}
+.lbl{font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin:0}
+.root{list-style:none;margin:8px 0 0;padding:0}
+.root li{position:relative;padding:0 0 16px 34px}
+.root li::before{content:"";position:absolute;left:10px;top:20px;bottom:-2px;width:2px;background:var(--line)}
+.root li:last-child{padding-bottom:0}
+.root li:last-child::before{display:none}
+.root li::after{content:"";position:absolute;left:3px;top:5px;width:16px;height:16px;border-radius:50%;background:var(--surface);border:3px solid var(--bc,var(--cx))}
+.root li.me::after{background:var(--bc,var(--accent))}
+.root .n{font-weight:600;line-height:1.3}
+.root .g{font-size:13px;color:var(--muted)}
+.root li.me .box{background:var(--bt,var(--soft));border:1.5px solid var(--bc,var(--accent));border-radius:12px;padding:10px 12px;margin-top:-4px}
+.root li.me .n{font-size:18px}
+.nn,.lnk{border:0;background:none;padding:0;font-weight:600;cursor:pointer;text-align:left;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{flex:1 1 170px;border:2px solid var(--accent);background:transparent;color:var(--accent);font-weight:700;padding:13px 16px;border-radius:12px;cursor:pointer;text-align:center}
+.btn.primary{background:var(--accent);color:var(--accent-fg)}
+.btn.quiet{border-color:var(--line);color:var(--muted)}
+details.more{border-top:1px solid var(--line);padding-top:12px}
+details.more summary{cursor:pointer;font-weight:600;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.chip{border:1px solid var(--line);background:var(--bt,var(--soft));padding:6px 11px;border-radius:99px;font-size:14px;font-weight:500;cursor:pointer;display:inline-flex;gap:7px;align-items:center;text-align:left}
+.sec{margin-top:12px}
+.slot{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+.picked{display:flex;align-items:center;gap:10px}
+.picked .who{flex:1;min-width:0}
+.picked .who b{display:block}
+.picked .who small{color:var(--muted)}
+.chg{border:1px solid var(--line);background:var(--soft);border-radius:8px;padding:6px 10px;font-weight:600;font-size:13px;cursor:pointer}
+.answer{background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--accent);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:14px}
+.answer .big{font-size:21px;font-weight:700;line-height:1.3;margin:0;text-wrap:balance}
+.answer .back{margin:0;color:var(--muted)}
+.trail{list-style:none;margin:6px 0 0;padding:0}
+.trail li.n{display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--bt,var(--soft));border:1px solid var(--line);border-radius:10px;font-weight:600;flex-wrap:wrap}
+.trail li.n .gtag{margin-left:auto;font-weight:500;font-size:12px;color:var(--muted)}
+.trail li.c{padding:4px 0 4px 22px;color:var(--muted);font-size:13px;position:relative}
+.trail li.c::before{content:"";position:absolute;left:5px;top:0;bottom:0;border-left:2px dotted var(--line)}
+.trail li.c span{padding-left:14px}
+.stats{display:flex;flex-wrap:wrap;gap:4px 18px;color:var(--muted);font-size:14px;margin:12px 0}
+.stats b{color:var(--fg)}
+.toolbar{display:flex;gap:8px;margin:0 0 10px;flex-wrap:wrap}
+.tb{border:1px solid var(--line);background:var(--surface);border-radius:99px;padding:6px 13px;font-weight:600;font-size:13px;cursor:pointer}
+.banner{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:0 0 12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.banner span{flex:1;min-width:0}
+.tree details{margin:0}
+.tree summary{list-style:none;cursor:pointer;display:flex;gap:8px;align-items:flex-start;padding:7px 4px 7px 0}
+.tree summary::-webkit-details-marker{display:none}
+.tree summary::before{content:"\25B8";color:var(--muted);font-size:12px;margin-top:5px;flex:none;width:12px;transition:transform .15s}
+.tree details[open]>summary::before{transform:rotate(90deg)}
+.tree .inner{margin-left:5px;padding-left:11px;border-left:2px solid var(--line)}
+.tree .row{display:flex;gap:8px;align-items:flex-start;padding:7px 4px 7px 20px}
+.tree .dot{margin-top:6px}
+.tree .tx{flex:1;min-width:0}
+.tree .meta{display:block;color:var(--muted);font-size:12.5px}
+.gen{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:8px;overflow:hidden}
+.gen summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:13px 14px;font-weight:700}
+.gen summary::-webkit-details-marker{display:none}
+.gen summary::before{content:"\25B8";color:var(--muted);font-size:13px;transition:transform .15s}
+.gen[open]>summary::before{transform:rotate(90deg)}
+.gen .ct{margin-left:auto;color:var(--muted);font-weight:600;font-size:13px}
+.gen .gl{padding:0 8px 8px}
+.prow{width:100%;display:flex;gap:10px;align-items:flex-start;text-align:left;border:0;border-top:1px solid var(--line);background:transparent;padding:9px 6px;cursor:pointer}
+.prow .dot{margin-top:6px}
+.prow small{display:block;color:var(--muted);font-size:12.5px}
+.warn{background:var(--surface);border:1px solid var(--line);border-left:5px solid #C94F27;border-radius:10px;padding:10px 12px;margin-bottom:8px}
+.ok{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:10px;padding:12px}
+mark{background:var(--hl);color:var(--hl-fg);border-radius:3px;padding:0 1px}
+.empty{color:var(--muted);padding:20px 4px;text-align:center}
+.foot{color:var(--muted);font-size:13px;text-align:center;margin-top:18px}
+.foot a{color:var(--muted)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="tw"><header class="top">
+  <button class="ib" id="back" aria-label="Back" hidden>&#8249;</button>
+  <div class="brand" id="brand">
+    <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="9" r="7" fill="#A5D69A"/><circle cx="7.5" cy="12" r="5" fill="#6FB063"/><circle cx="18.5" cy="12" r="5" fill="#6FB063"/><circle cx="13" cy="11" r="5" fill="#C3E8B9"/><rect x="11.6" y="14" width="2.8" height="10" rx="1" fill="#F2EBD8"/></svg>
+    <span id="ttl">കോമത്ത് കുടുംബവൃക്ഷം</span>
+  </div>
+</header>
+<nav class="bn" aria-label="Main">
+  <a href="#/" data-nav="home"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>Search</a>
+  <a href="#/compare" data-nav="compare"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="7" r="3"/><circle cx="18" cy="17" r="3"/><path d="M8.5 9l7 6"/></svg>Compare</a>
+  <a href="#/tree" data-nav="tree"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="4" rx="1"/><rect x="3" y="17" width="6" height="4" rx="1"/><rect x="15" y="17" width="6" height="4" rx="1"/><path d="M12 7v5M6 17v-5h12v5"/></svg>Tree</a>
+  <a href="#/gens" data-nav="gens"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M7 12h13M10 18h10"/></svg>Generations</a>
+</nav>
+</div>
+<main id="app"></main>
+<script src="family-data.js"></script>
+<script>
+(function(){
+'use strict';
+var TEXT=(window.FAMILY_TEXT||'');
+var D=[],tags={},refs=[],warn=[],kids={};
+var $=function(id){return document.getElementById(id);};
+var esc=function(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});};
+
+/* ---------- read family-data.js ---------- */
+function seg(s){
+  s=s.trim();var tag=null,eng=false,m;
+  m=s.match(/\s*#([A-Za-z0-9_-]+)\s*$/); if(m){tag=m[1];s=s.slice(0,m.index).trim();}
+  m=s.match(/^engaged\s*:\s*/i); if(m){eng=true;s=s.slice(m[0].length).trim();}
+  var parts=s.split(/\s+\/\s+/);
+  return {n:(parts[0]||'').trim(),a:(parts[1]||'').trim(),tag:tag,eng:eng};
+}
+function mk(o){o.id=D.length;D.push(o);return o;}
+(function parse(){
+  var stack=[];
+  TEXT.split(/\r?\n/).forEach(function(raw,li){
+    var ln=li+1, s=raw.replace(/\t/g,'  ');
+    if(/^\s*(#.*)?$/.test(s)) return;
+    var ind=s.match(/^ */)[0].length, lvl=Math.floor(ind/2), body=s.trim();
+    if(ind%2) warn.push({ln:ln,msg:'The spaces at the start should be a multiple of 2.'});
+    if(lvl>stack.length){warn.push({ln:ln,msg:'Moved too far to the right. A child can be only 2 spaces more than the line above.'});lvl=stack.length;}
+    if(lvl===0&&stack.length>0){warn.push({ln:ln,msg:'Only one first-generation person is allowed. This line was placed under the first person.'});lvl=1;}
+    var segs=body.split(/\s+&\s+/), f=seg(segs[0]);
+    if(!f.n){warn.push({ln:ln,msg:'The name is missing.'});return;}
+    var parent=lvl>0?stack[lvl-1]:null;
+    var node=mk({n:f.n,a:f.a,t:'b',p:parent,sp:[],tag:f.tag,ln:ln,g:lvl+1});
+    stack.length=lvl;stack[lvl]=node.id;
+    if(f.tag){ if(tags[f.tag]!==undefined) warn.push({ln:ln,msg:'The tag #'+f.tag+' is used twice.'}); else tags[f.tag]=node.id; }
+    for(var i=1;i<segs.length;i++){
+      var q=seg(segs[i]);
+      if(!q.n&&q.tag){refs.push({o:node.id,tag:q.tag,ln:ln});continue;}
+      if(!q.n){warn.push({ln:ln,msg:'A spouse name is missing after &.'});continue;}
+      var sp=mk({n:q.n,a:q.a,t:q.eng?'eng':'sp',o:node.id,sp:[node.id],tag:q.tag,ln:ln});
+      node.sp.push(sp.id);
+      if(q.tag) tags[q.tag]=sp.id;
+    }
+  });
+  refs.forEach(function(r){
+    var t=tags[r.tag];
+    if(t===undefined){warn.push({ln:r.ln,msg:'No person has the tag #'+r.tag+'.'});return;}
+    var A=D[r.o],B=D[t];
+    if(B.t!=='b'){warn.push({ln:r.ln,msg:'#'+r.tag+' must be a person written in the tree, not a spouse.'});return;}
+    if(A.sp.indexOf(t)<0)A.sp.push(t);
+    if(B.sp.indexOf(r.o)<0)B.sp.push(r.o);
+  });
+  D.forEach(function(x){if(x.t==='b'&&x.p!==null)(kids[x.p]=kids[x.p]||[]).push(x.id);});
+  var kp0=tags.kunipokar;
+  if(kp0!==undefined&&D[kp0]){var off=0;D.forEach(function(x){if(x.t==='b')x.g-=off;});}
+})();
+
+/* ---------- helpers ---------- */
+function anchor(id){return D[id].t==='b'?id:D[id].o;}
+function chain(id){var c=[id],x=D[id];while(x.p!==null&&x.p!==undefined){c.push(x.p);x=D[x.p];}return c;}
+function short(p){return p.n.replace(/\s*\(.*?\)\s*/g,' ').trim()||p.n;}
+function genTxt(g){return g>=1?'Generation '+g+' ('+g+'-ാം തലമുറ)':'Earlier ancestor (മുൻ തലമുറ)';}
+function cap1(t){return t.charAt(0).toUpperCase()+t.slice(1);}
+function G(g){return g>=1?'Gen '+g:'Ancestor';}
+var GC={};
+function grp(id){
+  var a=anchor(id); if(GC[a]) return GC[a];
+  var ch=chain(a),r=null,kp=tags.kunipokar;
+  if(kp!==undefined&&D[kp]&&D[kp].t==='b'){
+    var i=ch.indexOf(kp);
+    if(i>0){var top=ch[i-1],ix=(kids[kp]||[]).indexOf(top);r={c:ix>5?-1:ix,label:D[top].a||D[top].n};}
+  }
+  if(!r){
+    if(D[a].g<=5) r={c:-1,label:'Ancestors'};
+    else {var g5=ch.filter(function(z){return D[z].g===5;})[0];r={c:-1,label:(D[g5].a||D[g5].n)+' line'};}
+  }
+  return GC[a]=r;
+}
+function bcls(id){var g=grp(id);return g.c>=0?'b'+g.c:'bx';}
+function blabel(id){var g=grp(id);return g.label+(g.c>=0?' branch':'');}
+function ctx(p){
+  if(p.t!=='b'){var X=D[p.o];return (p.t==='eng'?'Engaged to ':'Married in · '+cap1(spouseWord(gender(p.id)))+' of ')+short(X)+' ('+G(X.g)+')';}
+  if(p.p===null) return 'Earliest ancestor in this tree';
+  return 'Child of '+parents(p.id).map(function(x){return short(D[x]);}).join(' & ');
+}
+var DC={};
+function desc(id){if(DC[id]!==undefined)return DC[id];var n=0;(kids[id]||[]).forEach(function(k){n+=1+desc(k);});return DC[id]=n;}
+var flat=function(a){return [].concat.apply([],a);};
+function nameHTML(p){return esc(p.n)+(p.a?' <span class="al">'+esc(p.a)+'</span>':'');}
+function spNames(p){return p.sp.map(function(s){return esc(D[s].n)+(D[s].t==='eng'?' (engaged)':'');}).join(' &amp; ');}
+function tokens(q){return q.toLowerCase().split(/\s+/).filter(Boolean);}
+function hl(t,qs){
+  if(!qs||!qs.length) return esc(t);
+  var re=new RegExp('('+qs.map(function(x){return x.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}).join('|')+')','gi');
+  return t.split(re).map(function(piece,i){return i%2?'<mark>'+esc(piece)+'</mark>':esc(piece);}).join('');
+}
+function matches(qs){
+  return D.filter(function(p){var h=(p.n+' '+(p.a||'')).toLowerCase();return qs.every(function(t){return h.indexOf(t)>=0;});});
+}
+
+/* ---------- relationships ---------- */
+function parents(id){
+  var x=D[id];if(x.t!=='b'||x.p===null)return [];
+  var r=[x.p];D[x.p].sp.forEach(function(s){if(D[s].t==='b'&&r.indexOf(s)<0)r.push(s);});return r;
+}
+function ancs(id){
+  var m={};m[id]={d:0,from:null};var q=[id];
+  for(var i=0;i<q.length;i++){var c=q[i];parents(c).forEach(function(p){if(!m[p]){m[p]={d:m[c].d+1,from:c};q.push(p);}});}
+  return m;
+}
+function lca(a,b){
+  var A=ancs(a),B=ancs(b),best=null;
+  Object.keys(A).forEach(function(k){
+    if(B[k]){var s=A[k].d+B[k].d;
+      if(!best||s<best.s||(s===best.s&&Math.abs(A[k].d-B[k].d)<Math.abs(best.da-best.db)))best={s:s,top:+k,da:A[k].d,db:B[k].d};}
+  });
+  best.A=A;best.B=B;return best;
+}
+function kidsAll(id){
+  var r=(kids[id]||[]).slice();
+  D[id].sp.forEach(function(s){if(D[s].t==='b')(kids[s]||[]).forEach(function(k){if(r.indexOf(k)<0)r.push(k);});});
+  return r;
+}
+function descAll(id){
+  var seen={},q=kidsAll(id).slice(),n=0;
+  q.forEach(function(x){seen[x]=1;});
+  for(var i=0;i<q.length;i++){n++;kidsAll(q[i]).forEach(function(k){if(!seen[k]){seen[k]=1;q.push(k);}});}
+  return n;
+}
+function great(n){return n<=0?'':(n<=3?new Array(n+1).join('great-'):n+'x great-');}
+var ORD=['','first','second','third','fourth','fifth','sixth','seventh'];
+/* ---------- gender (guessed from the name) ---------- */
+var FEMW={},HOUSEW={},GOV={};
+
+('Aaliya Aamina Abida Adiya Afa Afnitha Afra Aileen Aimina Ain Aira Aisa Aisha Aiza Ajeena Ajsiya Alzia Amana Amina Amna Amreen Anabiya Anum Arifa Arshina Arwa Aseeba Ashifa Ashima Ashira Ashmina Asiya Asma Asmina Asmira Asna Asya Atheeba Ayesha Ayichucha Ayisha Ayishu Ayiza Ayra Ayrin Aysha Aza Bathool Biyathu Biyyathu Daneen Deefla Dikra Dilsath Diva Dua Duha Erha Erza Eva Fahina Fahma Fahmidha Faiha Fairoosa Farisa Farsana Farsi Fasali Faseela Fasna Fathima Fathimathu Fatima Femeeda Ferin Fida Fidha Filza Fiza Fousiya Fowmida Galiya Hadhiya Hadiya Hafeefa Hafra Hafsa Hafsath Haikha Haira Hairunneesa Hairunnisa Hajara Hajira Hajjuma Hajjumma Hala Haleema Hamda Hamdha Hamna Hana Haneena Haniya Hannath Hanoona Harshina Haseena Hasna Hasnath Hawa Heslin Heza Hina Hinba Hisana Hishana Hiza Husna Hyra Iffa Ilham Inaara Inaaya Inaya Inayath Iram Ishwa Iva Izna Izva Izwa Jadeera Jahana Jameela Jasa Jaseera Jasera Jasmina Jisana Jumaila Jumailath Jumana Juwayriya Kadeeja Kadeesha Kenza Khadeeja Khadeejathul Khadija Kubra Kunipathu Kunjami Kunjamina Kunjayisha Kunjipathu Kunjippathu Kunmariyam Labeeba Laiba Liya Liyana Luaimiya Lubeena Lubna Madeeha Mahbooba Maimoonath Maleeha Malika Mami Manha Mariyam Marjan Marva Maryam Mayasa Meha Mehak Meharish Mehrin Mehvish Mehwish Mehza Mich Miesha Mifrah Milaya Milza Minsa Minsila Mirsana Misiriya Misriya Misvana Mubashira Mubeena Muhsina Musfira Mushrifa Muslihath Muthas Muzaina Nada Nadeera Nadiya Nafeesa Nafia Nafla Nafna Nahra Naishana Naiza Naja Najiha Najiya Najma Namath Naseeha Naseema Naseera Nashifa Nasla Nasrin Nasriya Nazah Neha Nehamiya Nesla Neyza Nidha Nihala Nima Nishana Nizana Nooha Noora Noureen Nourin Noushi Nujoom Nusrath Nyza Parveen Pathucha Pathutti Pathutty Rabiya Rafida Rafiha Raheena Rahiya Raifa Raihanath Rajeena Rameena Ramla Ramlath Ramsheena Ramshida Rana Rasanath Raseena Rashida Rasiya Rasla Rayeesa Rayeeza Rayhanath Raza Razana Rida Rifa Rila Rinha Rinshana Risana Rishana Riswana Riya Riza Rizvana Roula Rua Rufzana Rukkiya Safa Safariya Safeera Safiya Safvana Safwana Sahada Sahala Sahara Saheera Sahida Saina Sainaba Saja Sajeena Sajeera Sakeena Saleena Salma Salmath Sameera Samiyath Samra Sana Sanha Sara Sareena Sauda Sejeena Senha Shabana Shadiya Shafa Shafeena Shafna Shahala Shahama Shahana Shahareen Shaheera Shahida Shahma Shaiba Shaiza Shameema Shameena Shamseera Shana Shareefa Sharmina Shazana Shazfa Shehana Sherin Shifana Souda Soudha Subaida Sufaina Sufaira Sufna Suhaina Suhaira Suhana Suhani Suhara Suhra Sulaika Sulaikha Sumayya Sumiyyath Swaliha Tahira Thabshira Thahira Thahnin Thasleena Thasni Thwaiba Umaira Waheeda Waisa Wiam Zaba Zahra Zaiba Zainab Zaira Zamja Zanha Zansa Zarish Zeba Zeenath Zenha Ziva Ziya Zoya Zufena Zynu').split(' ').forEach(function(w){FEMW[w]=1;});
+('AK Ahmed Almas Boosthani CK Chelakkad Chemparakandi Chenachankandil Cheriyanadakkal Cheruvalath Erath Frandi Hospital Jathiyeri KV Kadungakandi Kallarathaya Kalluvalappil Kanavath Kaniyankandi Komathu Kummankode Kuniyambath Kuniyil Kuttyadi MPK Madathil Marutheri Mukku Nucleus Ottapilakod Padinjarayil Palerikkandi Palolathil Palollalathil Parambath Poovullathil Puthanpurayil Puthookkandi Puthukkott Puthusseri TH Thayathillath Thazhathillath Thazhatlillath Thazheillath Thoduvayil Thottathil VP Valiyandy Vengeri').split(' ').forEach(function(w){HOUSEW[w]=1;});
+(window.FAMILY_FEMALE||[]).forEach(function(n){GOV[n.toLowerCase()]='f';});
+(window.FAMILY_MALE||[]).forEach(function(n){GOV[n.toLowerCase()]='m';});
+var GC2={};
+function gender(id){
+  if(GC2[id]!==undefined)return GC2[id];
+  var p=D[id],en=(p.a||p.n),k=en.toLowerCase().trim(),g='?';
+  if(GOV[k])g=GOV[k];
+  else{
+    var t=en.replace(/\(.*?\)/g,' ').split(/\s+/).filter(Boolean);
+    for(var i=0;i<t.length;i++){var w=t[i];if(FEMW[w]){g='f';break;}if(HOUSEW[w])continue;g='m';break;}
+  }
+  return GC2[id]=g;
+}
+function gw(g,m,f,n){return g==='m'?m:g==='f'?f:n;}
+function ancTerm(n,g){var b=n===1?gw(g,'father','mother','parent'):gw(g,'grandfather','grandmother','grandparent');return n<=2?b:great(n-2)+b;}
+function descTerm(n,g){var b=n===1?gw(g,'son','daughter','child'):gw(g,'grandson','granddaughter','grandchild');return n<=2?b:great(n-2)+b;}
+function upTerm(k,g){/* k=0 sibling, 1 uncle/aunt, 2 great-uncle ... */
+  if(k===0)return gw(g,'brother','sister','sibling');
+  return (k>=2?great(k-1):'')+gw(g,'uncle','aunt','uncle/aunt');
+}
+function bloodName(da,db,g){
+  if(da===0)return descTerm(db,g);
+  if(db===0)return ancTerm(da,g);
+  if(da===1&&db===1)return gw(g,'brother','sister','sibling');
+  if(da===1){var nn=db-1;return (nn>=2?great(nn-1)+'grand':'')+gw(g,'nephew','niece','niece or nephew');}
+  if(db===1)return upTerm(da-1,g);
+  var deg=Math.min(da,db)-1,rem=Math.abs(da-db);
+  return (ORD[deg]||deg+'th')+' cousin'+(rem?(rem===1?' once removed':rem===2?' twice removed':' '+rem+' times removed'):'');
+}
+function blood(a,b){var r=lca(a,b);return{name:bloodName(r.da,r.db,gender(b)),r:r};}
+function spouseWord(g){return gw(g,'husband','wife','spouse');}
+function whatIs(a,b){
+  if(a===b)return 'the same person';
+  var A=D[a],B=D[b];
+  if(A.t==='b'&&B.t==='b'){
+    var bn=blood(a,b).name;
+    return A.sp.indexOf(b)>=0?spouseWord(gender(b))+' (also '+bn+')':bn;
+  }
+  function rel(x,y){return simpleRel(x,y)||blood(x,y).name;}
+  if(A.t!=='b'&&B.t==='b'){
+    var X=A.o; if(X===b)return A.t==='eng'?'fiancé(e)':spouseWord(gender(b));
+    var r=blood(X,b); if(r.r.da===0)return r.name; return spouseWord(gender(X))+"'s "+rel(X,b);
+  }
+  if(A.t==='b'&&B.t!=='b'){
+    var Y=B.o; if(Y===a)return B.t==='eng'?'fiancé(e)':spouseWord(gender(b));
+    var r2=blood(a,Y); if(r2.r.db===0)return bloodName(r2.r.da,0,gender(b)); return rel(a,Y)+"'s "+spouseWord(gender(b));
+  }
+  if(A.o===B.o)return 'fellow spouse of the same person';
+  return spouseWord(gender(A.o))+"'s "+rel(A.o,B.o)+"'s "+spouseWord(gender(b));
+}
+/* short route such as "uncle's son" (B described from A) */
+function simpleRel(a,b){
+  var A=D[a],B=D[b];
+  if(A.t!=='b'||B.t!=='b'||a===b)return '';
+  var r=lca(a,b);
+  if(r.da===0||r.db===0||r.db===1)return '';
+  var pb=upPath(r.B,r.top), cb=pb[1];
+  return upTerm(r.da-1,gender(cb))+"'s "+descTerm(r.db-1,gender(b));
+}
+
+/* ---------- Malayalam (Malabar) relationship words ---------- */
+var MLT={Uppa:['Uppa','ഉപ്പ','Uppante','ഉപ്പാന്റെ'],Umma:['Umma','ഉമ്മ','Ummayude','ഉമ്മയുടെ'],
+ Uppapa:['Uppapa','ഉപ്പാപ്പ','Uppapante','ഉപ്പാപ്പാന്റെ'],Ummama:['Ummama','ഉമ്മാമ','Ummamayude','ഉമ്മാമയുടെ'],
+ Makan:['Makan','മകൻ','Makante','മകന്റെ'],Makal:['Makal','മകൾ','Makalude','മകളുടെ'],
+ Sahodaran:['Sahodaran','സഹോദരൻ','Sahodarante','സഹോദരന്റെ'],Sahodari:['Sahodari','സഹോദരി','Sahodariyude','സഹോദരിയുടെ'],
+ Maaman:['Maaman','മാമൻ','Maamante','മാമന്റെ'],Bharthavu:['Bharthavu','ഭർത്താവ്','Bharthavinte','ഭർത്താവിന്റെ'],
+ Bharya:['Bharya','ഭാര്യ','Bharyayude','ഭാര്യയുടെ']};
+var MLH={'Valiyuppa / Kunjuppa':'വല്യുപ്പ / കുഞ്ഞുപ്പ','Valiyumma / Kunjumma':'വല്യുമ്മ / കുഞ്ഞുമ്മ','Ikka / Aniyan':'ഇക്ക / അനിയൻ','Ithatha / Aniyathi':'ഇത്താത്ത / അനിയത്തി'};
+function pT(g){return g==='f'?'Umma':'Uppa';}
+function gT(g){return g==='f'?'Ummama':'Uppapa';}
+function cT(g){return g==='f'?'Makal':'Makan';}
+function sT(g){return g==='f'?'Sahodari':'Sahodaran';}
+function wT(g){return g==='f'?'Bharya':'Bharthavu';}
+function mlMk(k,h){var e=[],m=[];k.forEach(function(x,i){var t=MLT[x],l=i===k.length-1;e.push(l?t[0]:t[2]);m.push(l?t[1]:t[3]);});return{e:e.join(' '),m:m.join(' '),h:h?{e:h,m:MLH[h]}:null};}
+function ancKeys(ups,n){
+  if(n===1)return [pT(gender(ups[1]))];
+  if(n===2)return [pT(gender(ups[1])),gT(gender(ups[2]))];
+  var k=[],j;for(j=2;j<=n;j+=2)k.push(gT(gender(ups[j])));
+  if(n%2===1)k.push(pT(gender(ups[n])));return k;
+}
+function uncleKeys(ups,da,x){/* x = the uncle/aunt (sibling of A's ancestor at da-1) */
+  var gB=gender(x),h=null,k;
+  if(da===2){
+    if(gender(ups[1])==='f'){if(gB==='f'){k=['Umma','Sahodari'];h='Valiyumma / Kunjumma';}else k=['Maaman'];}
+    else{k=['Uppa',sT(gB)];if(gB!=='f')h='Valiyuppa / Kunjuppa';}
+  }else k=ancKeys(ups,da-1).concat(sT(gB));
+  return{k:k,h:h};
+}
+function mlBloodK(a,b){
+  var r=lca(a,b),ups=upPath(r.A,r.top).reverse(),pb=upPath(r.B,r.top),da=r.da,db=r.db,k=[],h=null,i;
+  function dsc(f){for(i=f;i<pb.length;i++)k.push(cT(gender(pb[i])));}
+  if(da===0){dsc(1);return{k:k,h:null};}
+  if(db===0)return{k:ancKeys(ups,da),h:null};
+  if(da===1&&db===1){var g=gender(b);return{k:[sT(g)],h:g==='f'?'Ithatha / Aniyathi':'Ikka / Aniyan'};}
+  if(da===1){k=[sT(gender(pb[1]))];dsc(2);return{k:k,h:null};}
+  if(db===1){var u=uncleKeys(ups,da,b);return{k:u.k,h:u.h};}
+  var u2=uncleKeys(ups,da,pb[1]);k=u2.k.slice();dsc(2);return{k:k,h:null};
+}
+function mlRel(a,b){
+  if(a===b)return null;
+  var A=D[a],B=D[b],x,r;
+  if(A.t==='b'&&B.t==='b'){
+    if(A.sp.indexOf(b)>=0)return mlMk([wT(gender(b))]);
+    x=mlBloodK(a,b);return mlMk(x.k,x.h);
+  }
+  if(A.t!=='b'&&B.t==='b'){
+    var X=A.o;if(X===b)return mlMk([wT(gender(b))]);
+    x=mlBloodK(X,b);r=lca(X,b);
+    return mlMk(r.da===0?x.k:[wT(gender(X))].concat(x.k));
+  }
+  if(A.t==='b'&&B.t!=='b'){
+    var Y=B.o;if(Y===a)return mlMk([wT(gender(b))]);
+    r=lca(a,Y);x=mlBloodK(a,Y);
+    if(r.db===0){var k=x.k.slice(),l=k.length-1,f=gender(b)==='f',sw={Uppa:'Umma',Umma:'Uppa',Uppapa:'Ummama',Ummama:'Uppapa'};
+      if(sw[k[l]]&&((k[l]==='Uppa'||k[l]==='Uppapa')===f))k[l]=sw[k[l]];return mlMk(k);}
+    return mlMk(x.k.concat(wT(gender(b))));
+  }
+  if(A.o===B.o)return null;
+  return mlMk([wT(gender(A.o))].concat(mlBloodK(A.o,B.o).k,[wT(gender(b))]));
+}
+function mlHTML(a,b){
+  var m=mlRel(a,b);if(!m)return '';
+  return '<span class="mlt">'+esc(m.m)+'</span><br><span class="mls">'+esc(m.e)+'</span>'+(m.h?'<br><span class="mls">'+esc(m.h.m)+' ('+esc(m.h.e)+')</span>':'');
+}
+function upPath(M,top){var p=[],c=top;while(c!==null&&c!==undefined){p.push(c);c=M[c].from;}return p;}
+function pathNodes(a,b){
+  var a2=anchor(a),b2=anchor(b),r=lca(a2,b2);
+  var up=upPath(r.A,r.top).reverse(),down=upPath(r.B,r.top).slice(1),nodes=[];
+  if(a2!==a)nodes.push({id:a,link:null});
+  up.forEach(function(id,i){nodes.push({id:id,link:(i===0&&a2===a)?null:(i===0?'married':'parent')});});
+  down.forEach(function(id){nodes.push({id:id,link:'child'});});
+  if(b2!==b)nodes.push({id:b,link:'married'});
+  return nodes;
+}
+
+/* ---------- search box ---------- */
+var ICON='<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>';
+function searchBox(o){
+  var w=document.createElement('div');w.className='sbox';
+  w.innerHTML='<div class="field">'+ICON+'<input type="search" enterkeyhint="search" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="'+esc(o.label||o.placeholder)+'" placeholder="'+esc(o.placeholder)+'"></div><ul class="res" hidden></ul>';
+  var inp=w.querySelector('input'),ul=w.querySelector('ul');
+  function show(){
+    var qs=tokens(inp.value);
+    if(!qs.length){ul.hidden=true;if(o.onType)o.onType([]);return;}
+    if(o.onType)o.onType(qs);
+    if(o.noList){ul.hidden=true;return;}
+    var m=matches(qs);
+    m.sort(function(a,b){
+      var x=(a.n.toLowerCase().indexOf(qs[0])===0||(a.a||'').toLowerCase().indexOf(qs[0])===0)?0:1;
+      var y=(b.n.toLowerCase().indexOf(qs[0])===0||(b.a||'').toLowerCase().indexOf(qs[0])===0)?0:1;
+      return x-y||a.id-b.id;});
+    var total=m.length;m=m.slice(0,15);
+    ul.innerHTML=m.length?m.map(function(p){
+      return '<li><button type="button" data-pick="'+p.id+'"><i class="dot '+bcls(p.id)+'"></i><span><span class="nm">'+nameHTML(p)+'</span><span class="cx">'+(p.t==='b'?G(p.g)+' · ':'')+esc(ctx(p))+' · '+esc(blabel(p.id))+'</span></span></button></li>';
+    }).join('')+(total>15?'<li class="none">'+(total-15)+' more. Type more letters to narrow down.</li>':''):'<li class="none">No one found. Try another spelling or fewer letters.</li>';
+    ul.hidden=false;
+  }
+  inp.addEventListener('input',show);
+  ul.addEventListener('click',function(e){var b=e.target.closest('[data-pick]');if(b){ul.hidden=true;o.onPick(+b.dataset.pick);}});
+  w.input=inp;return w;
+}
+function focusSoon(el){setTimeout(function(){try{el.focus({preventScroll:true});}catch(e){}},60);}
+
+/* ---------- screens ---------- */
+var app=$('app');
+function chrome(title,back,nav){
+  $('ttl').textContent=title;$('back').hidden=!back;
+  document.querySelectorAll('.bn a').forEach(function(a){if(a.dataset.nav===nav)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
+  window.scrollTo(0,0);
+}
+function goHome(){location.hash='#/';}
+function chip(id){return '<button class="chip '+bcls(id)+'" data-go="'+id+'"><i class="dot"></i>'+esc(D[id].n)+'</button>';}
+function sec(t,ids){ids=ids.filter(function(x){return x!==undefined&&x!==null;});if(!ids.length)return '';return '<div class="sec"><p class="lbl">'+t+' ('+ids.length+')</p><div class="chips">'+ids.map(chip).join('')+'</div></div>';}
+
+function viewHome(){
+  chrome('കോമത്ത് കുടുംബവൃക്ഷം',false,'home');
+  app.innerHTML='<section class="home"><h1>Komath Family Tree</h1><p class="lead" style="margin-bottom:4px">Find a family member &middot; English or Malayalam</p><p class="ml">കോമത്ത് കുടുംബവൃക്ഷം &middot; കുടുംബാംഗത്തിന്റെ പേര് തിരയുക</p><div id="sb"></div></section>';
+  var sb=searchBox({placeholder:'Search by name',label:'Search by name',onPick:function(id){location.hash='#/person/'+id;}});
+  $('sb').appendChild(sb);focusSoon(sb.input);
+}
+function viewPerson(id){
+  var p=D[id];if(!p){goHome();return;}
+  chrome('Family root',true,'home');
+  var bl=p.t==='b',aid=anchor(id),A=D[aid],items='';
+  chain(aid).reverse().forEach(function(x){
+    var q=D[x],me=bl&&x===id,spn=spNames(q);
+    items+='<li class="'+bcls(x)+(me?' me':'')+'">'+(me?'<div class="box">':'')
+      +'<div class="n">'+(me?esc(q.n):'<button class="nn" data-go="'+x+'">'+esc(q.n)+'</button>')+(q.a?' <span class="al">'+esc(q.a)+'</span>':'')+(spn?' <span class="spn">&amp; '+spn+'</span>':'')+'</div>'
+      +'<div class="g">'+genTxt(q.g)+'</div>'+(me?'</div>':'')+'</li>';
+  });
+  if(!bl) items+='<li class="'+bcls(id)+' me"><div class="box"><div class="n">'+nameHTML(p)+'</div><div class="g">'+(p.t==='eng'?'Engaged to ':'Married to ')+esc(short(A))+'</div></div></li>';
+  var par=A.p,more='';
+  if(bl){
+    var parents=(par===null)?[]:[par].concat(D[par].sp.length===1?D[par].sp:[]);
+    var sibs=(par===null)?[]:kidsAll(par).filter(function(x){return x!==id;});
+    more=sec('Spouse',p.sp)+sec('Parents',parents)+sec('Brothers and sisters',sibs)+sec('Children',kidsAll(id));
+  } else {
+    var ap=A.p===null?[]:[A.p].concat(D[A.p].sp.length===1?D[A.p].sp:[]),asib=A.p===null?[]:kidsAll(A.p).filter(function(x){return x!==aid;}),sw=gender(aid)==='m'?'Husband':'Wife';
+    more=sec(p.t==='eng'?'Engaged to':'Married to',[aid])+sec(sw+"'s parents",ap)+sec(sw+"'s brothers and sisters",asib)+sec('Children',kidsAll(aid))+sec('Other spouses of '+esc(short(A)),A.sp.filter(function(x){return x!==id;}));
+  }
+  var ck=kidsAll(aid), dn=descAll(aid), bid=aid;
+  if(!(kids[aid]||[]).length){A.sp.forEach(function(s){if(D[s].t==='b'&&(kids[s]||[]).length)bid=s;});}
+  var tagsH='<span class="tag '+bcls(id)+'"><i class="dot"></i>'+esc(blabel(id))+'</span>'+'<span class="tag">'+(bl?genTxt(p.g):(p.t==='eng'?'Engaged to the family':'Married into the family'))+'</span>';
+  app.innerHTML='<div class="card"><div><div class="tags">'+tagsH+'</div><h2 style="margin-top:10px">'+nameHTML(p)+'</h2><p class="sub">'+esc(ctx(p))+(ck.length?' · '+ck.length+(ck.length===1?' child':' children')+', '+dn+(dn===1?' descendant':' descendants'):'')+'</p></div>'
+    +'<div><p class="lbl">Family root</p><ol class="root">'+items+'</ol></div>'
+    +'<div class="btns"><button class="btn primary" data-cmp="'+id+'">Compare with another person</button>'
+    +(ck.length?'<button class="btn" data-branch="'+bid+'">View descendants</button>':'')
+    +'<button class="btn quiet" id="clr">Clear</button></div>'
+    +(more?'<details class="more"'+(bl?'':' open')+'><summary>'+(bl?'Immediate family':'Family connections')+'</summary>'+more+'</details>':'')+'</div>';
+  $('clr').onclick=goHome;
+}
+function slotHTML(key,id,label){
+  if(id===null)return '<div class="slot"><p class="lbl">'+label+'</p><div id="sb-'+key+'"></div></div>';
+  var p=D[id];
+  return '<div class="slot"><p class="lbl">'+label+'</p><div class="picked"><i class="dot '+bcls(id)+'"></i><div class="who"><b>'+nameHTML(p)+'</b><small>'+(p.t==='b'?G(p.g)+' · ':'')+esc(ctx(p))+' · '+esc(blabel(id))+'</small></div><button class="chg" data-chg="'+key+'">Change</button></div></div>';
+}
+function marriedNote(id){var p=D[id];if(p.t==='b')return '';var X=D[p.o];
+  return '<p class="note"><b>'+esc(short(p))+'</b> '+(p.t==='eng'?'is engaged to the family: fiancé(e) of ':'married into the family: '+spouseWord(gender(id))+' of ')+'<b>'+esc(short(X))+'</b> ('+G(X.g)+', '+esc(blabel(X.id))+').</p>';}
+function cmpHash(a,b){return '#/compare'+(a!==null?'/'+a:(b!==null?'/-':''))+(b!==null?'/'+b:'');}
+function viewCompare(a,b){
+  chrome('Compare two people',a!==null||b!==null,'compare');
+  var h=slotHTML('a',a,'Person A')+slotHTML('b',b,'Person B');
+  if(a!==null&&b!==null){
+    if(a===b)h+='<p class="empty">Both are the same person. Change one of them.</p>';
+    else{
+      var A=D[a],B=D[b],nodes=pathNodes(a,b),r=lca(anchor(a),anchor(b)),top=D[r.top];
+      var direct=(r.da===0||r.db===0);
+      var anc=direct?'Direct line of descent':'Common ancestor: '+esc(top.n)+(top.sp.length===1?' &amp; '+esc(D[top.sp[0]].n):'');
+      var tr='';
+      nodes.forEach(function(n,i){
+        if(i>0){var t=n.link==='parent'?'is the child of':n.link==='child'?'is the parent of':'is married to';tr+='<li class="c"><span>'+t+'</span></li>';}
+        var q=D[n.id];tr+='<li class="n '+bcls(n.id)+'"><i class="dot"></i><span>'+esc(q.n)+'</span>'+(q.t==='b'?'<span class="gtag">'+G(q.g)+'</span>':'<span class="gtag">'+(q.t==='eng'?'engaged to ':spouseWord(gender(n.id))+' of ')+esc(short(D[q.o]))+'</span>')+'</li>';
+      });
+      var s1=simpleRel(a,b),s2=simpleRel(b,a);
+      h+='<div class="answer"><p class="big">'+esc(B.n)+' is '+esc(short(A))+"'s "+esc(s1||whatIs(a,b))+'.</p>'+(s1?'<p class="back">In family terms: '+esc(whatIs(a,b))+'.</p>':'')+'<p class="back">And '+esc(short(A))+' is '+esc(short(B))+"'s "+esc(s2||whatIs(b,a))+'.</p>'
+        +(mlRel(a,b)?'<div class="mlbox"><p class="lbl">In Malayalam &middot; മലയാളത്തിൽ</p><p class="mlp">'+esc(short(B))+' &rarr; '+esc(short(A))+': '+mlHTML(a,b)+'</p><p class="mlp">'+esc(short(A))+' &rarr; '+esc(short(B))+': '+mlHTML(b,a)+'</p></div>':'')
+        +marriedNote(a)+marriedNote(b)+'<div><p class="lbl">'+anc+'</p><ul class="trail">'+tr+'</ul></div></div>';
+      h+='<div class="btns" style="margin-top:12px"><button class="btn" id="swap">Swap A and B</button><button class="btn quiet" id="clrc">Clear</button></div>';
+    }
+  } else if(a!==null||b!==null) h+='<p class="empty">Now choose the second person.</p>';
+  else h+='<p class="empty">Choose two people to see how they are related.</p>';
+  app.innerHTML=h;
+  if(a===null){var sa=searchBox({placeholder:'Search Person A',onPick:function(id){location.replace(cmpHash(id,b));}});$('sb-a').appendChild(sa);if(b===null)focusSoon(sa.input);}
+  if(b===null){var sb=searchBox({placeholder:'Search Person B',onPick:function(id){location.replace(cmpHash(a,id));}});$('sb-b').appendChild(sb);if(a!==null)focusSoon(sb.input);}
+  app.querySelectorAll('[data-chg]').forEach(function(x){x.onclick=function(){location.replace(x.dataset.chg==='a'?cmpHash(null,b):cmpHash(a,null));};});
+  var sw=$('swap');if(sw)sw.onclick=function(){location.replace(cmpHash(b,a));};
+  var cc=$('clrc');if(cc)cc.onclick=function(){location.replace('#/compare');};
+}
+
+/* full tree */
+function treeHTML(rootId,qs,openAll){
+  var keep={},any=false;
+  if(qs.length){
+    matches(qs).forEach(function(p){any=true;chain(anchor(p.id)).forEach(function(x){keep[x]=true;});});
+    if(!any||!keep[rootId])return '<p class="empty">No one found. Try another spelling or fewer letters.</p>';
+  }
+  function spH(q){
+    if(!q.sp.length)return '';
+    return ' <span class="spn">'+q.sp.map(function(s){return (D[s].t==='eng'?'engaged: ':'&amp; ')+'<button class="lnk" data-go="'+s+'" style="font-weight:600;color:var(--fg)">'+hl(D[s].n,qs)+'</button>';}).join(' ')+'</span>';
+  }
+  function label(id){
+    var p=D[id];
+    return '<span class="tx"><span><button class="lnk" data-go="'+id+'">'+hl(p.n,qs)+'</button>'+(p.a?' <span class="al">'+hl(p.a,qs)+'</span>':'')+spH(p)+'</span>';
+  }
+  function node(id){
+    var p=D[id];if(qs.length&&!keep[id])return '';
+    var ks=(kids[id]||[]);
+    var meta=G(p.g)+(ks.length?' · '+ks.length+(ks.length===1?' child':' children')+' · '+desc(id)+(desc(id)===1?' descendant':' descendants'):'');
+    if(!ks.length&&p.sp.some(function(x){return D[x].t==='b'&&(kids[x]||[]).length;}))meta+=' · children shown under spouse';
+    if(!ks.length)return '<div class="row '+bcls(id)+'"><i class="dot"></i>'+label(id)+'<span class="meta">'+meta+'</span></span></div>';
+    var open=(qs.length||openAll||p.g<=5)?' open':'';
+    return '<details class="'+bcls(id)+'"'+open+'><summary><i class="dot" style="margin-top:6px"></i>'+label(id)+'<span class="meta">'+meta+'</span></span></summary><div class="inner">'+ks.map(node).join('')+'</div></details>';
+  }
+  if(rootId===0&&tags.kunipokar!==undefined){
+    var o=node(tags.kunipokar);
+    if(tags.kunjamina!==undefined){var k2=node(tags.kunjamina);if(k2)o+='<p class="lbl" style="margin:18px 4px 6px">Thoduvayil Soopi line</p>'+k2;}
+    return o;
+  }
+  return node(rootId);
+}
+function viewTree(rootId){
+  rootId=(rootId===null||D[rootId]===undefined||D[rootId].t!=='b')?0:rootId;
+  var sub=rootId!==0;
+  chrome(sub?'Descendants':'Full family tree',sub,'tree');
+  var blood=D.filter(function(p){return p.t==='b';}).length;
+  var h='<div id="tsb"></div>';
+  if(sub)h+='<div class="banner"><span>Showing descendants of <b>'+esc(D[rootId].n)+'</b></span><button class="tb" id="full">Show full tree</button></div>';
+  else h+='<p class="stats"><span><b>'+blood+'</b> family members</span><span><b>'+(D.length-blood)+'</b> spouses</span></p>';
+  h+='<div class="toolbar"><button class="tb" id="ex">Expand all</button><button class="tb" id="co">Collapse all</button></div><div class="tree" id="tr"></div>';
+  app.innerHTML=h;
+  var cur=[];
+  function draw(){$('tr').innerHTML=treeHTML(rootId,cur,sub);}
+  var s=searchBox({placeholder:sub?'Search in this branch':'Search the full tree',noList:true,onPick:function(){},onType:function(q){cur=q;draw();}});
+  $('tsb').appendChild(s);draw();
+  $('ex').onclick=function(){document.querySelectorAll('#tr details').forEach(function(d){d.open=true;});};
+  $('co').onclick=function(){document.querySelectorAll('#tr details').forEach(function(d){d.open=false;});};
+  var f=$('full');if(f)f.onclick=function(){location.hash='#/tree';};
+}
+function viewGens(){
+  chrome('Generations',false,'gens');
+  var by={},maxG=0,blood=0;
+  D.forEach(function(x){if(x.t==='b'){(by[x.g<1?0:x.g]=by[x.g<1?0:x.g]||[]).push(x.id);blood++;if(x.g>maxG)maxG=x.g;}});
+  var h='<h1>Generations</h1><p class="lead">തലമുറകൾ. Tap a generation to see everyone in it.</p><p class="stats" style="margin-top:0"><span><b>'+maxG+'</b> generations</span><span><b>'+blood+'</b> family members</span><span><b>'+(D.length-blood)+'</b> spouses</span></p>';
+  for(var g=1;g<=maxG+1;g++){
+    var gg=g>maxG?0:g,ids=by[gg]||[];if(!ids.length)continue;
+    h+='<details class="gen"><summary><span>'+(gg?gg+'-ാം തലമുറ <span class="al">Generation '+gg+'</span>':'മുൻ തലമുറകൾ <span class="al">Earlier ancestors (Thoduvayil line)</span>')+'</span><span class="ct">'+ids.length+(ids.length===1?' person':' people')+'</span></summary><div class="gl">'+ids.map(function(id){
+      var p=D[id];return '<button class="prow" data-go="'+id+'"><i class="dot '+bcls(id)+'"></i><span><b>'+nameHTML(p)+'</b><small>'+esc(ctx(p))+' · '+esc(blabel(id))+'</small></span></button>';
+    }).join('')+'</div></details>';
+  }
+  h+='<p class="foot">'+(warn.length?'<a href="#/check">⚠ '+warn.length+' problem'+(warn.length>1?'s':'')+' in family-data.js. Tap to see.</a>':'<a href="#/check">Data check</a>')+'</p>';
+  app.innerHTML=h;
+}
+function viewCheck(){
+  chrome('Data check',true,'gens');
+  var blood=D.filter(function(p){return p.t==='b';}).length;
+  var h='<h1>Data check</h1><p class="lead">Checks family-data.js after you edit it.</p>';
+  if(!TEXT.trim())h+='<div class="warn"><b>No data found.</b> family-data.js is missing or empty. Make sure it is in the same folder as index.html.</div>';
+  else h+='<p class="stats" style="margin-top:0"><span><b>'+blood+'</b> family members</span><span><b>'+(D.length-blood)+'</b> spouses</span></p>';
+  if(!warn.length&&TEXT.trim())h+='<div class="ok"><b>No problems found.</b> Every line was read correctly.</div>';
+  warn.forEach(function(w){h+='<div class="warn"><b>Line '+w.ln+' of the data text</b><br>'+esc(w.msg)+'</div>';});
+  app.innerHTML=h;
+}
+
+/* ---------- router ---------- */
+function route(){
+  if(!D.length){viewCheck();return;}
+  var m=(location.hash||'#/').replace(/^#\/?/,'').split('/');
+  var num=function(x){return(x!==undefined&&x!=='-'&&x!==''&&!isNaN(+x)&&D[+x])?+x:null;};
+  if(m[0]==='person'&&num(m[1])!==null)viewPerson(num(m[1]));
+  else if(m[0]==='compare')viewCompare(num(m[1]),num(m[2]));
+  else if(m[0]==='tree')viewTree(num(m[1]));
+  else if(m[0]==='gens')viewGens();
+  else if(m[0]==='check')viewCheck();
+  else viewHome();
+}
+window.addEventListener('hashchange',route);
+$('back').onclick=function(){if(history.length>1)history.back();else goHome();};
+$('brand').onclick=goHome;
+document.addEventListener('click',function(e){
+  var g=e.target.closest('[data-go]');if(g){e.preventDefault();location.hash='#/person/'+g.dataset.go;return;}
+  var c=e.target.closest('[data-cmp]');if(c){location.hash='#/compare/'+c.dataset.cmp;return;}
+  var b=e.target.closest('[data-branch]');if(b){location.hash='#/tree/'+b.dataset.branch;return;}
+  if(!e.target.closest('.sbox'))document.querySelectorAll('.res').forEach(function(u){u.hidden=true;});
+});
+route();
+if('serviceWorker' in navigator&&location.protocol.indexOf('http')===0){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}
+})();
+</script>
+</body>
+</html>
