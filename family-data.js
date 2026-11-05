@@ -816,10 +816,10 @@ window.FAMILY_TEXT = `
                 മിഖ്ദാദ് അബ്ദുൽ ജലീൽ / Miqdad Abdul Jaleel
                 മിസ്താഹ് / Mistah
                 മിൻസ / Minsa
-              റഹീം / Raheem & ഷബാന (മൊകേരി) / Shabana (Mokeri)
-                ഹൈസം അബ്ദുറഹീം / Haisam Abdurahim
-                ആദം / Adam
-                ആലിയ മറിയം / Aaliya Maryam
+              റഹീം / Raheem & ഷബാന വയയിൽ (നരിക്കൂട്ടും ചാലിൽ) / Shabana Vayayil (Narikoottum Chalil)
+                ഹൈസം അബ്ദുൽ റഹീം / Haizam Abdul Raheem
+                ആദം അബ്ദുള്ള / Adam Abdulla
+                ആലിയ മറിയം / Aliya Maryam
             സൂപ്പി തൊടുവയിൽ / Soopi Thoduvayil & മാമി (മഠത്തിൽ, കുമ്മൻകോട്) / Mami (Madathil, Kummankode)
               അൻസാർ / Ansar & നജ്മ (മഠത്തിൽ, കുമ്മൻകോട്) / Najma (Madathil, Kummankode)
                 ഫാത്തിമ / Fatima

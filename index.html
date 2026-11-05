@@ -373,7 +373,7 @@ function wT(g){return g==='f'?'Bharya':'Bharthavu';}
 function mlMk(k,h){var e=[],m=[];k.forEach(function(x,i){var t=MLT[x],l=i===k.length-1;e.push(l?t[0]:t[2]);m.push(l?t[1]:t[3]);});return{e:e.join(' '),m:m.join(' '),h:h?{e:h,m:MLH[h]}:null};}
 function ancKeys(ups,n){
   if(n===1)return [pT(gender(ups[1]))];
-  if(n===2)return [pT(gender(ups[1])),gT(gender(ups[2]))];
+  if(n===2)return [gT(gender(ups[2]))];
   var k=[],j;for(j=2;j<=n;j+=2)k.push(gT(gender(ups[j])));
   if(n%2===1)k.push(pT(gender(ups[n])));return k;
 }
