@@ -1,0 +1,15 @@
+FAMILY MEETUP - SHARED LIST SETUP (one time, about 5 minutes)
+
+1. Open sheets.google.com and create a new blank Google Sheet (name: "Komath Meetup").
+2. Menu: Extensions > Apps Script. Delete all existing code.
+3. Open the file meetup-apps-script.gs from this folder, copy everything and paste it. Click Save.
+4. Click Deploy > New deployment > type: Web app.
+     Execute as: Me
+     Who has access: Anyone
+   Click Deploy and allow the permissions it asks for.
+5. Copy the "Web app URL" (it starts with https://script.google.com/macros/s/...).
+6. Open meetup-config.js, paste the URL between the quotes of api:'' and also fill date, place and note.
+7. Upload the whole folder (or zip) to Netlify again.
+
+After this every family member sees the same Coming / Not coming list.
+All answers are also saved in your Google Sheet (tab "RSVP"), so you can download it.

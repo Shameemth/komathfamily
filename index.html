@@ -144,6 +144,41 @@ mark{background:var(--hl);color:var(--hl-fg);border-radius:3px;padding:0 1px}
 .empty{color:var(--muted);padding:20px 4px;text-align:center}
 .foot{color:var(--muted);font-size:13px;text-align:center;margin-top:18px}
 .foot a{color:var(--muted)}
+
+.bk{margin:-4px -4px 0}
+.bkbar{position:sticky;top:var(--twh,104px);z-index:4;background:var(--bar);color:var(--bar-fg);display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 12px;border-radius:10px;margin-bottom:10px}
+.bkbar b{display:block;font-size:15px}.bkbar small{display:block;font-size:11px;opacity:.85}
+.bkc{display:flex;align-items:center;gap:8px;font-size:13px;white-space:nowrap}
+.bkc button{width:32px;height:32px;border-radius:8px;border:1px solid rgba(255,255,255,.5);background:transparent;color:inherit;font-size:18px;cursor:pointer}
+.bkpages{display:flex;flex-direction:column;gap:12px;max-width:none}
+.bkimg{width:100%;height:auto;display:block;background:#fff;border:1px solid var(--line);border-radius:4px;box-shadow:0 2px 10px rgba(0,0,0,.12);-webkit-user-select:none;user-select:none}
+@media(min-width:760px){.bkpages{max-width:900px;margin:0 auto}}
+.mt .ev{background:var(--bar);color:var(--bar-fg);border-radius:14px;padding:16px;margin-bottom:12px}
+.mt .ev h1{margin:0;font-size:22px;color:inherit}.mt .ev p{margin:4px 0 0;opacity:.92}
+.mt .pick{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:12px}
+.mt .who{background:var(--soft);border-radius:12px;padding:12px;margin-top:12px}
+.mt .who b{font-size:17px}.mt .btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.mt .btns button{border:2px solid var(--line);background:var(--surface);border-radius:12px;padding:14px 8px;font:inherit;font-weight:700;cursor:pointer}
+.mt .btns .y{border-color:#2F7D32;color:#1f5a22}.mt .btns .y.on{background:#2F7D32;color:#fff}
+.mt .btns .n{border-color:#B3392F;color:#8a2820}.mt .btns .n.on{background:#B3392F;color:#fff}
+.mt .btns small{display:block;font-weight:500;opacity:.85}
+.mt .msg{margin-top:10px;font-weight:600}.mt .warnb{background:#FFF4D6;border:1px solid #E5C766;border-radius:10px;padding:8px 12px;font-size:13px;margin-bottom:12px}
+.mt .lst{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:0;margin-bottom:12px;overflow:hidden}
+.mt .lst h2{margin:0;padding:12px 14px;font-size:16px;display:flex;justify-content:space-between}
+.mt .lst.y h2{background:#E3F2E4;color:#1f5a22}.mt .lst.n h2{background:#FBE5E2;color:#8a2820}
+.mt .lst ol{margin:0;padding:6px 14px 10px 36px}.mt .lst li{padding:4px 0;border-bottom:1px solid var(--line)}.mt .lst li:last-child{border:0}
+.mt .lst .e{padding:10px 14px;color:var(--muted)}
+.mt .btns{grid-template-columns:1fr 1fr}.mt .clr{display:block;width:100%;margin-top:10px;padding:11px;border:1.5px dashed var(--muted);background:transparent;border-radius:12px;font:inherit;font-weight:600;color:var(--muted);cursor:pointer}
+.mt .pl{background:none;border:0;padding:0;font:inherit;text-align:left;cursor:pointer;color:inherit;width:100%;display:flex;justify-content:space-between;gap:8px;align-items:center}
+.mt .pl:after{content:"\25BE";color:var(--muted)}.mt .pl[aria-expanded=true]:after{content:"\25B4"}
+.mt .ln{margin:8px 0 4px;padding:10px 12px;background:var(--soft);border-radius:10px;font-size:14px}
+.mt .ln ol{list-style:none;margin:0;padding:0 0 0 10px;border-left:3px solid var(--bc,var(--cx))}
+.mt .ln li{border:0;padding:3px 0 3px 8px;position:relative}.mt .ln li small{color:var(--muted);margin-left:4px}
+.mt .ln li.me{font-weight:700;background:var(--surface);border-radius:8px;padding:6px 8px}
+.mt .ln .go{margin-top:8px;border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:7px 12px;font:inherit;font-weight:600;cursor:pointer}
+.home{display:flex;flex-direction:column;min-height:calc(100vh - 190px)}.hbot{margin-top:auto;padding-top:24px;display:flex;flex-direction:column;gap:10px}.hbot .hbk{margin:0;width:100%;max-width:none}
+.hbk{display:block;margin:18px auto 0;max-width:420px;text-align:center;background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-weight:600;color:inherit;text-decoration:none}
+.hbk small{display:block;color:var(--muted);font-weight:500}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
@@ -160,10 +195,12 @@ mark{background:var(--hl);color:var(--hl-fg);border-radius:3px;padding:0 1px}
   <a href="#/compare" data-nav="compare"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="7" r="3"/><circle cx="18" cy="17" r="3"/><path d="M8.5 9l7 6"/></svg>Compare</a>
   <a href="#/tree" data-nav="tree"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="4" rx="1"/><rect x="3" y="17" width="6" height="4" rx="1"/><rect x="15" y="17" width="6" height="4" rx="1"/><path d="M12 7v5M6 17v-5h12v5"/></svg>Tree</a>
   <a href="#/gens" data-nav="gens"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M7 12h13M10 18h10"/></svg>Generations</a>
+  <a href="#/book" data-nav="book"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v17H6a2 2 0 0 0-2 2z"/><path d="M4 22V5M9 8h6"/></svg>Book</a>
 </nav>
 </div>
 <main id="app"></main>
 <script src="family-data.js"></script>
+<script src="meetup-config.js"></script>
 <script>
 (function(){
 'use strict';
@@ -473,7 +510,7 @@ function sec(t,ids){ids=ids.filter(function(x){return x!==undefined&&x!==null;})
 
 function viewHome(){
   chrome('കോമത്ത് കുടുംബവൃക്ഷം',false,'home');
-  app.innerHTML='<section class="home"><h1>Komath Family Tree</h1><p class="lead" style="margin-bottom:4px">Find a family member &middot; English or Malayalam</p><p class="ml">കോമത്ത് കുടുംബവൃക്ഷം &middot; കുടുംബാംഗത്തിന്റെ പേര് തിരയുക</p><div id="sb"></div></section>';
+  app.innerHTML='<section class="home"><h1>Komath Family Tree</h1><p class="lead" style="margin-bottom:4px">Find a family member &middot; English or Malayalam</p><p class="ml">കോമത്ത് കുടുംബവൃക്ഷം &middot; കുടുംബാംഗത്തിന്റെ പേര് തിരയുക</p><div id="sb"></div><div class="hbot"><a class="hbk" href="#/meetup" style="background:var(--bar);color:var(--bar-fg)">Family Meetup &middot; RSVP<small style="color:inherit;opacity:.9">കുടുംബ സംഗമം · വരുന്നുണ്ടോ? അറിയിക്കുക</small></a><a class="hbk" href="#/book">About the family &middot; Family Book<small>കുടുംബത്തെക്കുറിച്ച് · മുഴുവൻ കഥയും ചരിത്രവും വായിക്കാം</small></a></div></section>';
   var sb=searchBox({placeholder:'Search by name',label:'Search by name',onPick:function(id){location.hash='#/person/'+id;}});
   $('sb').appendChild(sb);focusSoon(sb.input);
 }
@@ -609,6 +646,92 @@ function viewGens(){
   h+='<p class="foot">'+(warn.length?'<a href="#/check">⚠ '+warn.length+' problem'+(warn.length>1?'s':'')+' in family-data.js. Tap to see.</a>':'<a href="#/check">Data check</a>')+'</p>';
   app.innerHTML=h;
 }
+
+function viewBook(){
+  chrome('Family Book',false,'book');
+  var PG=[0,9,11,16,20,25,31,36,99],N=PG.length,z=1,h='<div class="bk"><div class="bkbar"><div><b>Komath Family Book</b><small>കോമത്ത് കുടുംബ ഗ്രന്ഥം</small></div>'
+   +'<div class="bkc"><button id="bz-" aria-label="Zoom out">&minus;</button><span id="bpg">1 / '+N+'</span><button id="bz+" aria-label="Zoom in">+</button></div></div><div class="bkpages" id="bkp">';
+  for(var i=1;i<=N;i++){var q=PG[i-1],n=(q<10?'0':'')+q;h+='<img class="bkimg" data-p="'+i+'" '+(i<=2?'src':'data-src')+'="book/p-'+n+'.jpg" alt="Page '+i+'" '+(i<=2?'':'loading="lazy"')+' style="aspect-ratio:595/842">';}
+  h+='</div><p class="foot">Page '+N+' of '+N+' &middot; Created by Shameem &middot; ഷമീം</p></div>';
+  app.innerHTML=h;
+  var tw=document.querySelector('.tw');if(tw)document.documentElement.style.setProperty('--twh',(tw.offsetHeight-1)+'px');
+  var box=$('bkp'),imgs=[].slice.call(box.querySelectorAll('img'));
+  function setZ(v){z=Math.max(1,Math.min(3,v));box.style.width=(z*100)+'%';box.parentNode.style.overflowX=z>1?'auto':'visible';}
+  $('bz+').onclick=function(){setZ(z+.5);};$('bz-').onclick=function(){setZ(z-.5);};
+  if('IntersectionObserver' in window){
+    var lo=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var m=e.target;if(m.dataset.src){m.src=m.dataset.src;delete m.dataset.src;}lo.unobserve(m);}});},{rootMargin:'1200px 0px'});
+    var po=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)$('bpg').textContent=e.target.dataset.p+' / '+N;});},{threshold:.5});
+    imgs.forEach(function(m){if(m.dataset.src)lo.observe(m);po.observe(m);});
+  } else imgs.forEach(function(m){if(m.dataset.src)m.src=m.dataset.src;});
+}
+function viewMeetup(){
+  chrome('Family Meetup',true,'home');
+  var C=window.MEETUP||{},api=C.api||'',store={},sel=null;
+  var LK='komath_meetup_v1';
+  try{store=JSON.parse(localStorage.getItem(LK)||'{}');}catch(e){store={};}
+  function save(){try{localStorage.setItem(LK,JSON.stringify(store));}catch(e){}}
+  function keyOf(id){return D[id].n+'|'+(D[id].a||'');}
+  function nameOf(id){return nameHTML(D[id]);}
+  var h='<div class="mt"><div class="ev"><h1>'+esc(C.title||'Family Meetup')+' &middot; '+esc(C.ml||'കുടുംബ സംഗമം')+'</h1>'
+   +(C.date?'<p>&#128197; '+esc(C.date)+'</p>':'')+(C.place?'<p>&#128205; '+esc(C.place)+'</p>':'')+(C.note?'<p>'+esc(C.note)+'</p>':'')
+   +'<p>Search your name and tell us if you are coming. &middot; നിങ്ങളുടെ പേര് തിരഞ്ഞ് വരുമോ ഇല്ലയോ എന്ന് അറിയിക്കുക.</p></div>'
+   +(api?'':'<div class="warnb">Not connected to the shared list yet. Responses are saved on this phone only until the admin sets up the shared list.</div>')
+   +'<div class="pick"><b>1. Find your name &middot; പേര് തിരയുക</b><div id="mtsb" style="margin-top:8px"></div><div id="mtsel"></div></div>'
+   +'<div id="mtl"></div></div>';
+  app.innerHTML=h;
+  var sb=searchBox({placeholder:'Search your name',label:'Search your name',onPick:function(id){sel=id;showSel();}});
+  $('mtsb').appendChild(sb);
+  function cur(id){var r=store[keyOf(id)];return r?r.status:'';}
+  function showSel(){
+    var el=$('mtsel');if(sel===null){el.innerHTML='';return;}
+    var c=cur(sel);
+    el.innerHTML='<div class="who"><b>'+nameOf(sel)+'</b><div class="lbl" style="margin-top:2px">'+esc(ctx(D[sel]))+'</div>'
+     +'<p style="margin:10px 0 0"><b>2. Will you come? &middot; വരുമോ?</b></p><div class="btns"><button class="y'+(c==='yes'?' on':'')+'" data-s="yes">&#10003; Coming<small>വരുന്നുണ്ട്</small></button><button class="n'+(c==='no'?' on':'')+'" data-s="no">&#10007; Not coming<small>വരുന്നില്ല</small></button></div>'+(c?'<button class="clr" data-s="clear">Clear my answer &middot; ഉത്തരം ഒഴിവാക്കുക</button>':'')+'<div class="msg" id="mtm"></div></div>';
+    [].forEach.call(el.querySelectorAll('[data-s]'),function(b){b.onclick=function(){submit(sel,b.dataset.s);};});
+  }
+  function submit(id,st){
+    var k=keyOf(id),m=$('mtm');
+    var nmv=D[id].n+(D[id].a?' / '+D[id].a:'');
+    if(st==='clear'){delete store[k];remote=remote.filter(function(r){return r.key!==k;});}else store[k]={key:k,name:nmv,status:st,t:new Date().toISOString(),id:id};
+    save();showSel();renderLists();
+    var ok=function(){var mm=$('mtm');if(mm)mm.textContent=(st==='clear'?'Your answer was cleared. · ഉത്തരം ഒഴിവാക്കി.':st==='yes'?'Thank you! Marked as coming. · നന്ദി, വരുന്നു എന്ന് രേഖപ്പെടുത്തി.':'Noted: not coming. · വരുന്നില്ല എന്ന് രേഖപ്പെടുത്തി.');};
+    if(!api){ok();return;}
+    if(m)m.textContent='Saving…';
+    fetch(api,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({key:k,name:nmv,status:st})})
+      .then(function(r){return r.json();}).then(function(){ok();load();})
+      .catch(function(){var mm=$('mtm');if(mm)mm.textContent='Could not reach the shared list. Please check internet and try again.';});
+  }
+  var remote=[],idx={};D.forEach(function(x){idx[x.n+'|'+(x.a||'')]=x.id;});
+  function lineHTML(id){
+    var p=D[id],bl=p.t==='b',aid=anchor(id),A=D[aid],ch=chain(aid).slice().reverse(),h='<ol class="'+bcls(id)+'">';
+    ch.forEach(function(x){var q=D[x],me=bl&&x===id;h+='<li'+(me?' class="me"':'')+'>'+nameHTML(q)+'<small>Gen '+q.g+'</small></li>';});
+    if(!bl)h+='<li class="me">'+nameHTML(p)+'<small>'+(p.t==='eng'?'Engaged to ':'Married to ')+esc(short(A))+'</small></li>';
+    h+='</ol><div class="lbl" style="margin-top:6px">'+esc(ctx(p))+'</div><button class="go" data-go="'+id+'">Open full page &rsaquo;</button>';
+    return h;
+  }
+  $('mtl').addEventListener('click',function(e){
+    var b=e.target.closest('.pl');if(!b)return;
+    var d=b.nextElementSibling,open=b.getAttribute('aria-expanded')==='true';
+    if(!open&&!d.innerHTML)d.innerHTML=lineHTML(+b.dataset.l);
+    b.setAttribute('aria-expanded',open?'false':'true');d.hidden=open;
+  });
+  function renderLists(){
+    var all={};
+    remote.forEach(function(r){all[r.key]=r;});
+    if(!api)Object.keys(store).forEach(function(k){all[k]=store[k];});
+    var yes=[],no=[];Object.keys(all).forEach(function(k){var r=all[k];(r.status==='yes'?yes:r.status==='no'?no:[]).push(r);});
+    function srt(a,b){return String(a.name).localeCompare(String(b.name));}yes.sort(srt);no.sort(srt);
+    function box(cls,t,ml,arr){return '<div class="lst '+cls+'"><h2><span>'+t+' &middot; '+ml+'</span><span>'+arr.length+'</span></h2>'+(arr.length?'<ol>'+arr.map(function(r){var p=r.name.split(' / ');var id=idx[r.key];var nm='<b>'+esc(p[0])+'</b>'+(p[1]?' <span class="al">'+esc(p.slice(1).join(' / '))+'</span>':'');return '<li>'+(id===undefined?nm:'<button class="pl" data-l="'+id+'" aria-expanded="false"><span>'+nm+'</span></button><div class="ln" hidden></div>')+'</li>';}).join('')+'</ol>':'<div class="e">No one yet</div>')+'</div>';}
+    $('mtl').innerHTML='<p class="stats"><span><b>'+yes.length+'</b> coming</span><span><b>'+no.length+'</b> not coming</span></p>'+box('y','Coming','വരുന്നവർ',yes)+box('n','Not coming','വരാത്തവർ',no);
+  }
+  function load(){
+    if(!api){renderLists();return;}
+    $('mtl').innerHTML='<p class="lead">Loading list…</p>';
+    fetch(api).then(function(r){return r.json();}).then(function(j){remote=j.rsvp||[];renderLists();})
+      .catch(function(){$('mtl').innerHTML='<div class="warnb">Could not load the shared list. Check internet.</div>';});
+  }
+  load();
+}
 function viewCheck(){
   chrome('Data check',true,'gens');
   var blood=D.filter(function(p){return p.t==='b';}).length;
@@ -629,6 +752,8 @@ function route(){
   else if(m[0]==='compare')viewCompare(num(m[1]),num(m[2]));
   else if(m[0]==='tree')viewTree(num(m[1]));
   else if(m[0]==='gens')viewGens();
+  else if(m[0]==='book')viewBook();
+  else if(m[0]==='meetup')viewMeetup();
   else if(m[0]==='check')viewCheck();
   else viewHome();
 }
