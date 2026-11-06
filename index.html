@@ -145,38 +145,51 @@ mark{background:var(--hl);color:var(--hl-fg);border-radius:3px;padding:0 1px}
 .foot{color:var(--muted);font-size:13px;text-align:center;margin-top:18px}
 .foot a{color:var(--muted)}
 
-.bk{margin:-4px -4px 0}
-.bkbar{position:sticky;top:var(--twh,104px);z-index:4;background:var(--bar);color:var(--bar-fg);display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 12px;border-radius:10px;margin-bottom:10px}
-.bkbar b{display:block;font-size:15px}.bkbar small{display:block;font-size:11px;opacity:.85}
-.bkc{display:flex;align-items:center;gap:8px;font-size:13px;white-space:nowrap}
-.bkc button{width:32px;height:32px;border-radius:8px;border:1px solid rgba(255,255,255,.5);background:transparent;color:inherit;font-size:18px;cursor:pointer}
-.bkpages{display:flex;flex-direction:column;gap:12px;max-width:none}
-.bkimg{width:100%;height:auto;display:block;background:#fff;border:1px solid var(--line);border-radius:4px;box-shadow:0 2px 10px rgba(0,0,0,.12);-webkit-user-select:none;user-select:none}
-@media(min-width:760px){.bkpages{max-width:900px;margin:0 auto}}
-.mt .ev{background:var(--bar);color:var(--bar-fg);border-radius:14px;padding:16px;margin-bottom:12px}
-.mt .ev h1{margin:0;font-size:22px;color:inherit}.mt .ev p{margin:4px 0 0;opacity:.92}
-.mt .pick{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:12px}
-.mt .who{background:var(--soft);border-radius:12px;padding:12px;margin-top:12px}
-.mt .who b{font-size:17px}.mt .btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
-.mt .btns button{border:2px solid var(--line);background:var(--surface);border-radius:12px;padding:14px 8px;font:inherit;font-weight:700;cursor:pointer}
-.mt .btns .y{border-color:#2F7D32;color:#1f5a22}.mt .btns .y.on{background:#2F7D32;color:#fff}
-.mt .btns .n{border-color:#B3392F;color:#8a2820}.mt .btns .n.on{background:#B3392F;color:#fff}
-.mt .btns small{display:block;font-weight:500;opacity:.85}
-.mt .msg{margin-top:10px;font-weight:600}.mt .warnb{background:#FFF4D6;border:1px solid #E5C766;border-radius:10px;padding:8px 12px;font-size:13px;margin-bottom:12px}
-.mt .lst{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:0;margin-bottom:12px;overflow:hidden}
-.mt .lst h2{margin:0;padding:12px 14px;font-size:16px;display:flex;justify-content:space-between}
-.mt .lst.y h2{background:#E3F2E4;color:#1f5a22}.mt .lst.n h2{background:#FBE5E2;color:#8a2820}
-.mt .lst ol{margin:0;padding:6px 14px 10px 36px}.mt .lst li{padding:4px 0;border-bottom:1px solid var(--line)}.mt .lst li:last-child{border:0}
-.mt .lst .e{padding:10px 14px;color:var(--muted)}
-.mt .btns{grid-template-columns:1fr 1fr}.mt .clr{display:block;width:100%;margin-top:10px;padding:11px;border:1.5px dashed var(--muted);background:transparent;border-radius:12px;font:inherit;font-weight:600;color:var(--muted);cursor:pointer}
-.mt .pl{background:none;border:0;padding:0;font:inherit;text-align:left;cursor:pointer;color:inherit;width:100%;display:flex;justify-content:space-between;gap:8px;align-items:center}
-.mt .pl:after{content:"\25BE";color:var(--muted)}.mt .pl[aria-expanded=true]:after{content:"\25B4"}
-.mt .ln{margin:8px 0 4px;padding:10px 12px;background:var(--soft);border-radius:10px;font-size:14px}
-.mt .ln ol{list-style:none;margin:0;padding:0 0 0 10px;border-left:3px solid var(--bc,var(--cx))}
-.mt .ln li{border:0;padding:3px 0 3px 8px;position:relative}.mt .ln li small{color:var(--muted);margin-left:4px}
-.mt .ln li.me{font-weight:700;background:var(--surface);border-radius:8px;padding:6px 8px}
-.mt .ln .go{margin-top:8px;border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:7px 12px;font:inherit;font-weight:600;cursor:pointer}
-.home{display:flex;flex-direction:column;min-height:calc(100vh - 190px)}.hbot{margin-top:auto;padding-top:24px;display:flex;flex-direction:column;gap:10px}.hbot .hbk{margin:0;width:100%;max-width:none}
+
+.bk{display:flex;flex-direction:column;gap:14px;max-width:760px;margin:0 auto}
+.pg{background:#FBF8F1;color:#1b241d;border:1px solid #e3dfd2;border-radius:6px;box-shadow:0 2px 10px rgba(0,0,0,.12);padding:22px 20px 40px;position:relative;font-family:"Noto Serif Malayalam","FreeSerif",Georgia,serif;line-height:1.75;-webkit-user-select:text;user-select:text}
+.pgt{display:flex;justify-content:space-between;font:700 10px/1 Inter,system-ui,sans-serif;letter-spacing:.14em;color:#7a7f73;margin-bottom:16px}
+.pgn{position:absolute;bottom:12px;left:0;right:0;text-align:center;font:700 11px Inter,system-ui,sans-serif;color:#7a7f73}
+.pgf{text-align:center;font:600 11px Inter,system-ui,sans-serif;color:#7a7f73;margin-top:14px}
+.pg h1{font-family:Lora,Georgia,"FreeSerif",serif;margin:0}.pg p{margin:0 0 12px;font-size:17px;text-align:left}
+.pg .band{background:linear-gradient(160deg,#2F5D2A,#1c3d1a);color:#fff;border-radius:8px;padding:20px 18px;margin-bottom:16px}
+.pg .kk{font:700 11px Inter,system-ui,sans-serif;letter-spacing:.3em;color:#E9D79B;text-transform:uppercase}
+.pg .band h1{font-size:30px;margin:8px 0 2px;line-height:1.25}.pg .en2{font:600 17px Lora,Georgia,serif;color:#dfe9dc}.pg .sub{font:500 13px Inter,system-ui,sans-serif;color:#cfe0cc;margin-top:8px}
+.pg .dc:first-letter{float:left;font-size:52px;line-height:44px;padding:4px 8px 0 0;color:#2F5D2A;font-weight:700}
+.chain{display:flex;gap:4px;align-items:center;justify-content:center;margin:14px 0;flex-wrap:wrap}
+.chain div{background:#fff;border:1px solid #e3dfd2;border-radius:8px;padding:5px 9px;text-align:center;font-weight:700;font-size:14px;line-height:1.3}
+.chain small{display:block;font:500 10px Inter,system-ui,sans-serif;color:#777}.chain i{color:#B8923A;font-style:normal;font-size:18px}
+.chain .kpn{background:#2F5D2A;color:#fff;border-color:#2F5D2A}.chain .kpn small{color:#E9D79B}
+.tl4{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:12px 0}
+.tl4>div{background:#fff;border:1px solid #e3dfd2;border-radius:10px;text-align:center;padding:10px 6px;font:600 10px/1.4 Inter,system-ui,sans-serif;color:#555}
+.tl4 b{display:block;font:700 28px Lora,Georgia,serif;color:#2F5D2A}
+.tl4.s4>div{color:#fff;border:0;font-weight:700}.tl4.s4 b{color:#fff}
+.six3{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:8px 0}
+.six3>div{border-top:5px solid var(--c);background:var(--t);border-radius:8px;padding:8px 10px}
+.six3 b{display:block;font-size:15px;line-height:1.35}.six3 span{display:block;font:500 11px Inter,system-ui,sans-serif;color:#555}.six3 em{display:block;font:700 10px Inter,system-ui,sans-serif;font-style:normal;color:var(--c);margin-top:3px}
+.qt{margin:16px 0 0;border-left:4px solid #B8923A;padding:4px 14px;font-style:italic;color:#2a362c;font-size:16px;line-height:1.6}
+.kk2{font:700 11px Inter,system-ui,sans-serif;letter-spacing:.3em;color:#B8923A}
+.h1b{font-size:30px!important;color:#17301A;margin-top:4px!important}.mlh{font-size:20px;font-weight:700;color:#2F5D2A;margin:2px 0 6px}
+hr.gr{border:0;border-top:2px solid #2F5D2A;margin:8px 0 14px}hr.gc{border:0;border-top:2px solid var(--c);margin:10px 0 16px}
+.rootb{background:#2F5D2A;color:#fff;border-radius:8px;padding:10px;text-align:center;margin-bottom:12px}.rootb b{display:block;font-size:19px}.rootb span{display:block;font:500 13px Inter,system-ui,sans-serif}.rootb em{display:block;font:700 10px Inter,system-ui,sans-serif;font-style:normal;letter-spacing:.2em;color:#E9D79B;margin-top:3px}
+.brg{display:grid;grid-template-columns:1fr;gap:10px}
+.bc{background:var(--t);border-top:5px solid var(--c);border-radius:8px;padding:10px 12px}
+.bc .bn{font:700 10px Inter,system-ui,sans-serif;letter-spacing:.2em;color:var(--c)}.bc .bm{display:block;font-size:19px;line-height:1.3}.bc .be{display:block;font:500 12px Inter,system-ui,sans-serif;color:#555}
+.bc .bt{font:700 11px Inter,system-ui,sans-serif;color:#555;margin:6px 0 4px;letter-spacing:.06em}.bc .bt strong{font:700 28px Lora,Georgia,serif;color:var(--c);margin-right:4px}
+.bl{display:flex;justify-content:space-between;gap:8px;border-top:1px solid rgba(0,0,0,.08);padding:3px 0;font:500 13px/1.4 Inter,system-ui,sans-serif}.bl i{font-style:normal;font-weight:700;color:var(--c)}
+.bsty .bs1{font:700 10px Inter,system-ui,sans-serif;letter-spacing:.14em;color:var(--c)}.bsty .bs2{font:600 13px Inter,system-ui,sans-serif;color:var(--c);margin-top:10px}
+.h1m{font-size:32px!important;color:var(--c);line-height:1.25;margin:2px 0 4px!important}.bs3{font:500 13px Inter,system-ui,sans-serif;color:#666}.bs3 b{font-family:inherit;color:#111}
+.stbody p{font-size:17px}.stt{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 14px}.stt span{background:var(--t);border-radius:10px;padding:6px 12px;font:600 13px Inter,system-ui,sans-serif;color:#33403a}.stt b{font:700 22px Lora,Georgia,serif;color:var(--c);margin-right:4px}
+.chl{font:700 13px Inter,system-ui,sans-serif;color:var(--c);margin:10px 0 6px}.chr{display:flex;flex-direction:column;gap:6px}
+.cp{display:flex;align-items:baseline;gap:8px;text-align:left;border:0;border-left:4px solid var(--c);background:var(--t);border-radius:6px;padding:8px 10px;font:inherit;cursor:pointer;color:inherit}.cp i{font:700 12px Inter,system-ui,sans-serif;font-style:normal;color:var(--c)}.cp b{font-size:16px}.cp span{font:500 12px Inter,system-ui,sans-serif;color:#666}
+.h2s{font:700 17px Lora,Georgia,serif;margin:16px 0 6px;color:#17301A}.h2s span{font:600 14px "Noto Serif Malayalam",FreeSerif,serif;color:#2F5D2A}
+table.sm{width:100%;border-collapse:collapse;font:600 13px Inter,system-ui,sans-serif}table.sm th{font:700 10px Inter,system-ui,sans-serif;letter-spacing:.06em;color:#666;text-align:right;padding:4px;border-bottom:2px solid #ccc;text-transform:uppercase}table.sm th:first-child{text-align:left}
+table.sm td{padding:7px 4px;text-align:right;border-bottom:1px solid #e6e2d4}table.sm td:first-child{text-align:left}table.sm td b{font-size:14px}table.sm td small{display:block;font:500 11px Inter,system-ui,sans-serif;color:#666}
+.dt{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}table.sm tr.tt td{font-weight:700;font-size:15px;border-top:2px solid #2F5D2A;border-bottom:0}
+.gb{display:grid;grid-template-columns:48px 1fr 40px;gap:4px 8px;align-items:center;font:600 12px Inter,system-ui,sans-serif}.gb div{height:11px}.gb div i{display:block;height:100%;background:#2F5D2A;border-radius:3px}.gb b{text-align:right}
+.nt{font:500 12px/1.5 Inter,system-ui,sans-serif!important;color:#666;margin-top:12px!important}
+@media(min-width:620px){.pg{padding:30px 34px 44px}.tl4{grid-template-columns:repeat(4,1fr)}.six3{grid-template-columns:repeat(3,1fr)}.brg{grid-template-columns:repeat(2,1fr)}}
+.hbk{margin:0;width:100%;max-width:none}
 .hbk{display:block;margin:18px auto 0;max-width:420px;text-align:center;background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-weight:600;color:inherit;text-decoration:none}
 .hbk small{display:block;color:var(--muted);font-weight:500}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
@@ -201,6 +214,7 @@ mark{background:var(--hl);color:var(--hl-fg);border-radius:3px;padding:0 1px}
 <main id="app"></main>
 <script src="family-data.js"></script>
 <script src="meetup-config.js"></script>
+<script src="family-book.js"></script>
 <script>
 (function(){
 'use strict';
@@ -649,20 +663,50 @@ function viewGens(){
 
 function viewBook(){
   chrome('Family Book',false,'book');
-  var PG=[0,9,11,16,20,25,31,36,99],N=PG.length,z=1,h='<div class="bk"><div class="bkbar"><div><b>Komath Family Book</b><small>കോമത്ത് കുടുംബ ഗ്രന്ഥം</small></div>'
-   +'<div class="bkc"><button id="bz-" aria-label="Zoom out">&minus;</button><span id="bpg">1 / '+N+'</span><button id="bz+" aria-label="Zoom in">+</button></div></div><div class="bkpages" id="bkp">';
-  for(var i=1;i<=N;i++){var q=PG[i-1],n=(q<10?'0':'')+q;h+='<img class="bkimg" data-p="'+i+'" '+(i<=2?'src':'data-src')+'="book/p-'+n+'.jpg" alt="Page '+i+'" '+(i<=2?'':'loading="lazy"')+' style="aspect-ratio:595/842">';}
-  h+='</div><p class="foot">Page '+N+' of '+N+' &middot; Created by Shameem &middot; ഷമീം</p></div>';
+  var ST=window.FAMILY_STORIES||{},KP=null;
+  D.forEach(function(x){if(KP===null&&x.t==='b'&&x.g===5&&(kids[x.id]||[]).length===6)KP=x.id;});
+  if(KP===null)KP=4;
+  var heads=kids[KP]||[],CR='<div class="pgf">Created by Shameem &middot; ഷമീം</div>';
+  function pg(cls,top,inner,n){return '<section class="pg '+(cls||'')+'"><div class="pgt"><span>KOMATH FAMILY BOOK</span><span>'+top+'</span></div>'+inner+'<div class="pgn">'+n+'</div></section>';}
+  var COL=['#2A6AA0','#4B7C1E','#A85A14','#7A4FA3','#B8305A','#1F7A74'],TNT=['#E3EDF6','#E8F0DC','#F7E9DA','#EFE6F6','#F8E3EA','#DDF0EE'];
+  var CNT=[151,64,108,98,160,233],h='<div class="bk">',n=0;
+  // 1 father
+  var kp=D[KP];
+  h+=pg('fa','OUR FATHER','<div class="band"><div class="kk">OUR FATHER &middot; നമ്മുടെ ഉപ്പ</div><h1>കുനിപോക്കർ കോമത്ത്</h1><div class="en2">Komathu Kunipokar</div><div class="sub">The father of the six branches &middot; ആറ് ശാഖകളുടെ പിതാവ്</div></div>'
+   +'<p class="dc">ഈ കുടുംബത്തിന്റെ വൃക്ഷത്തിൽ ആറ് വലിയ ശിഖരങ്ങൾ പടർന്നുനിൽക്കുന്നു. ആ ശിഖരങ്ങളെല്ലാം ഒരേ തടിയിൽ നിന്ന് വളർന്നതാണ്: കുനിപോക്കർ കോമത്ത്. തൊടുവയിൽ സൂപ്പിയുടെ മകനായി ജനിച്ച അദ്ദേഹം കുടുംബത്തിന്റെ അഞ്ചാം തലമുറയിലാണ്.</p>'
+   +'<p>ജീവിതത്തിൽ ഒപ്പം ചേർന്നത് മറിയം (കോമത്ത്). ഈ ദമ്പതികൾക്ക് ആറ് മക്കൾ പിറന്നു: നാല് ആണും രണ്ട് പെണ്ണും. ആ ആറ് പേരിൽ നിന്നാണ് ഇന്ന് നമ്മൾ കാണുന്ന ആറ് ശാഖകൾ തുടങ്ങിയത്.</p>'
+   +'<div class="chain"><div>തൊടുവയിൽ അന്ത്രുമാൻ<small>Generation 1</small></div><i>&rsaquo;</i><div>കുഞ്ഞേറ്റി<small>Gen 2</small></div><i>&rsaquo;</i><div>കുഞ്ഞാലി<small>Gen 3</small></div><i>&rsaquo;</i><div>സൂപ്പി<small>Gen 4</small></div><i>&rsaquo;</i><div class="kpn">കുനിപോക്കർ<small>Gen 5</small></div></div>'
+   +'<div class="tl4"><div><b>6</b>CHILDREN &middot; മക്കൾ</div><div><b>814</b>DESCENDANTS &middot; പിൻതലമുറ</div><div><b>273</b>SPOUSES JOINED &middot; ജീവിതപങ്കാളികൾ</div><div><b>7</b>GENERATIONS &middot; തലമുറകൾ</div></div>'
+   +'<p>കുനിപോക്കറിൽ നിന്ന് ആറാം തലമുറ മുതൽ പതിനൊന്നാം തലമുറ വരെ, ആറ് ശാഖകളിലായി 814 പിൻതലമുറക്കാർ ഇന്ന് ഈ വേരിൽ നിന്ന് തളിർത്തിരിക്കുന്നു. അവരോട് ചേർന്ന് 273 ജീവിതപങ്കാളികളും കുടുംബത്തിന്റെ ഭാഗമായി.</p>'
+   +'<p><b>ആറ് മക്കൾ &middot; Six children</b></p><div class="six3">'+heads.map(function(x,c){return '<div style="--c:'+COL[c]+';--t:'+TNT[c]+'"><b>'+esc(D[x].n)+'</b><span>'+esc(D[x].a||'')+'</span><em>BRANCH '+(c+1)+' &middot; '+CNT[c]+'</em></div>';}).join('')+'</div>'
+   +'<div class="qt">ഒരു വേരിൽ നിന്ന് ആറ് ശാഖകൾ, ആറ് ശാഖകളിൽ നിന്ന് നൂറുകണക്കിന് ഇലകൾ. ഓരോ പേരും ഈ ഉപ്പയുടെ കഥയുടെ തുടർച്ചയാണ്.</div>'+CR,++n);
+  // 2 six branches
+  h+=pg('','CHAPTER 05','<div class="kk2">CHAPTER 05</div><h1 class="h1b">The six branches</h1><div class="mlh">ആറ് ശാഖകൾ</div><hr class="gr">'
+   +'<div class="rootb"><b>'+esc(kp.n)+'</b><span>'+esc(kp.a)+' &amp; Mariyam</span><em>GENERATION 5 &middot; SIX CHILDREN</em></div><div class="brg">'
+   +heads.map(function(x,c){var q=D[x],tot=[194,78,147,131,226,310][c];
+     return '<div class="bc" style="--c:'+COL[c]+';--t:'+TNT[c]+'"><div class="bn">BRANCH '+(c+1)+'</div><b class="bm">'+esc(q.n)+'</b><span class="be">'+esc(q.a)+'</span><div class="bt"><strong>'+tot+'</strong> MEMBERS</div>'
+      +(kids[x]||[]).map(function(k){return '<div class="bl"><span>'+esc(D[k].a||D[k].n)+'</span><i>'+(desc(k)+1)+'</i></div>';}).join('')+'</div>';}).join('')+'</div>'+CR,++n);
+  // 3-8 branch story pages
+  heads.forEach(function(x,c){
+    var q=D[x],st=ST[x]||{},sp=spNames(q);
+    h+=pg('b'+c,'BRANCH '+(c+1)+' &middot; '+esc(String(q.a||'').split(' ')[1]||'').toUpperCase(),
+     '<div class="bsty" style="--c:'+COL[c]+';--t:'+TNT[c]+'"><div class="bs1">BRANCH '+(c+1)+' &middot; THE STORY OF '+esc(String(q.a||'').toUpperCase())+'</div>'
+     +'<div class="bs2">കഥ &middot; '+esc(st.s||'')+'</div><h1 class="h1m">'+esc(q.n)+'</h1><div class="bs3">'+esc(q.a||'')+(sp?' &amp; <b>'+sp+'</b>':'')+'</div><hr class="gc">'
+     +'<div class="stbody">'+(st.h||'')+'</div><div class="stt">'+(st.t||'')+'</div>'
+     +'<div class="chl">മക്കൾ &middot; Children</div><div class="chr">'+(kids[x]||[]).map(function(k,i){return '<button class="cp" data-go="'+k+'"><i>'+(i+1)+'</i><b>'+esc(D[k].n)+'</b> <span>'+esc(D[k].a||'')+'</span></button>';}).join('')+'</div></div>'+CR,++n);
+  });
+  // 9 summary
+  var br=[['കോമത്ത് അമ്മദ്ക്ക','Branch 1 · Komathu Ammadkka',151,43],['കോമത്ത് കുനിസൂപ്പിക്ക','Branch 2 · Komathu Kunisoopikka',64,14],['ജാതിയേരി മൊയ്തുക്ക','Branch 3 · Jathiyeri Moidukka',108,39],['കോമത്ത് കുഞ്ഞാലി എളാപ്പ','Branch 4 · Komathu Kunjali Elappa',98,33],['പാലേരിക്കണ്ടി കുഞ്ഞാമി','Branch 5 · Palerikkandi Kunjami',160,66],['തൊടുവയിൽ കുനിപാത്തു','Branch 6 · Thoduvayil Kunipathu',233,77]];
+  var gen=[1,1,1,1,2,9,32,159,448,167,2];
+  h+=pg('','FINAL SUMMARY','<div class="kk2">FINAL SUMMARY &middot; ആകെ കണക്ക്</div><h1 class="h1b">Our Family at a Glance</h1><div class="mlh">ഒറ്റ നോട്ടത്തിൽ നമ്മുടെ കുടുംബം</div><hr class="gr">'
+   +'<div class="tl4 s4"><div style="background:#2F5D2A"><b>1,096</b>TOTAL PEOPLE &middot; ആകെ അംഗങ്ങൾ</div><div style="background:#2A6AA0"><b>823</b>BORN IN FAMILY &middot; കുടുംബത്തിൽ ജനിച്ചവർ</div><div style="background:#B8305A"><b>273</b>MARRIED IN &middot; വിവാഹം വഴി ചേർന്നവർ</div><div style="background:#7A4FA3"><b>11</b>GENERATIONS &middot; തലമുറകൾ</div></div>'
+   +'<h2 class="h2s">By branch <span>ശാഖ അനുസരിച്ച്</span></h2><table class="sm"><tr><th>Branch</th><th>Born</th><th>Married in</th><th>Total</th></tr>'
+   +br.map(function(r,i){return '<tr><td><i class="dt" style="background:'+COL[i]+'"></i><b>'+r[0]+'</b><small>'+r[1]+'</small></td><td>'+r[2]+'</td><td>'+r[3]+'</td><td><b>'+(r[2]+r[3])+'</b></td></tr>';}).join('')
+   +'<tr><td><i class="dt" style="background:#5B6B60"></i><b>മുൻ തലമുറകൾ</b><small>Elders &amp; Soopi\'s other line</small></td><td>9</td><td>1</td><td><b>10</b></td></tr><tr class="tt"><td>Total &middot; ആകെ</td><td>823</td><td>273</td><td>1,096</td></tr></table>'
+   +'<h2 class="h2s">By generation <span>തലമുറ അനുസരിച്ച് (born in family)</span></h2><div class="gb">'+gen.map(function(v,i){return '<span>Gen '+(i+1)+'</span><div><i style="width:'+Math.max(v/448*100,1.5)+'%"></i></div><b>'+v+'</b>';}).join('')+'</div>'
+   +'<p class="nt"><b>Born in family</b> = ജനിച്ച കുടുംബാംഗങ്ങൾ. <b>Married in</b> = husband or wife who joined by marriage (includes 1 engaged). Branch totals add up to 1,086; the other 10 are the elders (Generation 1 to 5) and Soopi\'s other line.</p>'+CR,++n);
+  h+='</div>';
   app.innerHTML=h;
-  var tw=document.querySelector('.tw');if(tw)document.documentElement.style.setProperty('--twh',(tw.offsetHeight-1)+'px');
-  var box=$('bkp'),imgs=[].slice.call(box.querySelectorAll('img'));
-  function setZ(v){z=Math.max(1,Math.min(3,v));box.style.width=(z*100)+'%';box.parentNode.style.overflowX=z>1?'auto':'visible';}
-  $('bz+').onclick=function(){setZ(z+.5);};$('bz-').onclick=function(){setZ(z-.5);};
-  if('IntersectionObserver' in window){
-    var lo=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var m=e.target;if(m.dataset.src){m.src=m.dataset.src;delete m.dataset.src;}lo.unobserve(m);}});},{rootMargin:'1200px 0px'});
-    var po=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)$('bpg').textContent=e.target.dataset.p+' / '+N;});},{threshold:.5});
-    imgs.forEach(function(m){if(m.dataset.src)lo.observe(m);po.observe(m);});
-  } else imgs.forEach(function(m){if(m.dataset.src)m.src=m.dataset.src;});
 }
 function viewMeetup(){
   chrome('Family Meetup',true,'home');
